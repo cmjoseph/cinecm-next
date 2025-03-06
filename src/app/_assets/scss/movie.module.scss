@@ -1,11 +1,13 @@
 .grid {
     display: flex;
     margin: 0 -2em;
+    width: 100%;
+    justify-content: flex-start;
     flex-wrap: wrap;
     .grid_item {
         position: relative;
         width: calc(25% - 4em);
-        height: 100%;
+        height: auto;
         margin: 2em;
         .poster {
             position: relative;

@@ -35,7 +35,7 @@ export default function Movie({movies}: any) {
 
     return (
         <div className={styles.grid} ref={container}>
-            {movies.map((movie: any, index: any) => (
+            {movies.slice(0, 8).map((movie: any, index: any) => (
                 <Link key={index} href={`/reviews/${toSlug(movie.title)}`} className={styles.grid_item} ref={(el: any) => { if (reviews.current) {(reviews.current[index] = el)} }}>
                     <div className={styles.poster}>
                         <div className={styles.overlay}>

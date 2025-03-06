@@ -33,7 +33,7 @@ export default function Coming({items}: any) {
 
     return (
         <div className={styles.grid} ref={container}>
-            {items.map((item: any, index: any) => (
+            {items.slice(0, 3).map((item: any, index: any) => (
                 <div key={index} ref={(el: any) => { if (posters.current) {(posters.current[index] = el)} }} className={styles.grid_item} >
                     <div className={styles.overlay}>
                         {item.title}
