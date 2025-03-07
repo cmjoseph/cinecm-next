@@ -1,0 +1,51 @@
+.filters {
+    position: relative;
+    .group_radio {
+        display: flex;
+        .group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2em;
+            label {
+                display: block;
+                color: white;
+                text-transform: uppercase;
+                margin-left: 15px;
+            }
+            input.radio {
+                width: 20px;
+                height: 20px;
+                outline: none;
+                padding: 10px;
+                color: black;
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+            + .group {
+                margin-left: 15px;
+            }
+        }
+    }
+    .group_text {
+        .group {
+            margin-bottom: 2em;
+            label {
+                display: block;
+                color: white;
+                text-transform: uppercase;
+                margin-bottom: 15px;
+            }
+            input.text {
+                width: 100%;
+                appearance: none;
+                border: none;
+                height: 40px;
+                outline: none;
+                padding: 10px;
+                color: black;
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+        }
+    }
+}
