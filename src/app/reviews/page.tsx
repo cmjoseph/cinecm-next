@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRef, useState, useLayoutEffect, useMemo } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { toSlug } from "../_hooks/slug";
+import { toSlug, getAllActors } from "../_hooks/slug";
 import { movies } from "../_hooks/data";
 
 import styles from "../_assets/scss/reviews.module.scss";
@@ -14,7 +14,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Page() {
     const [searchTerm, setSearchTerm]               = useState("");
-    const [selectedCategory, setSelectedCategory]   = useState("");
+    const [selectedType, setSelectedType]           = useState("");
+    const [selectedActor, setSelectedActor]         = useState("");
     const [isPanelOpen, setIsPanelOpen]             = useState(false);
 
     const container = useRef<HTMLDivElement>(null);
@@ -30,15 +31,18 @@ export default function Page() {
         }
     };
 
-    const filteredData = useMemo(() => {
+    const actors = getAllActors(movies);
+
+    console.log(actors);
+
+    const filteredMovies = useMemo(() => {
 		return movies.filter((movie: any) => {
 			const matchesSearch = movie.title.toLowerCase().includes(searchTerm.toLowerCase());
-			const matchesCategory = selectedCategory
-				? movie.type === selectedCategory
-				: true;
-			return matchesSearch && matchesCategory;
+			const matchesType = selectedType ? movie.type === selectedType : true;
+            const matchesActor = !selectedActor || movie.actors.includes(selectedActor);
+			return matchesSearch && matchesType && matchesActor;
 		});
-	}, [searchTerm, selectedCategory]);
+	}, [searchTerm, selectedType, selectedActor]);
     
     useLayoutEffect(() => {
         if (reviews.current.length === 0) return;
@@ -66,13 +70,15 @@ export default function Page() {
             <div className={styles.container}>
                 <div className={styles.top}>
                     <h1>Reviews</h1>
+                    {/* Trigger filters */}
                     <button onClick={handleToggle} className={`${isPanelOpen ? styles.open : ''}`}>
-                        {isPanelOpen ? 'Close' : 'Filter'}
+                        {isPanelOpen ? 'Close Filters' : 'Filters'}
                     </button>
                 </div>
                 <div className={partial.grid} ref={container}>
-                {filteredData.length > 0 ? (
-                    filteredData.map((movie, index) => (
+                {/* All Movies */}
+                {filteredMovies.length > 0 ? (
+                    filteredMovies.map((movie, index) => (
                         <Link key={index} href={`/reviews/${toSlug(movie.title)}`} className={partial.grid_item} ref={(el: any) => { if (reviews.current) {(reviews.current[index] = el)} }}>
                             <div className={partial.poster}>
                                 <div className={partial.overlay}>
@@ -93,6 +99,7 @@ export default function Page() {
                 <div className={styles.wrapper} ref={panel}>
                     <h2>Sort by</h2>
                     <div className={filters.filters}>
+                        {/* Types */}
                         <div className={filters.group_radio}>
                             <div className={filters.group}>
                                 <input
@@ -102,8 +109,8 @@ export default function Page() {
                                     placeholder='Search all'
                                     className={filters.radio}
                                     value=""
-                                    checked={selectedCategory === ""}
-                                    onChange={() => setSelectedCategory("")}
+                                    checked={selectedType === ""}
+                                    onChange={() => setSelectedType("")}
                                 />
                                 <label htmlFor="all">All</label>
                             </div>
@@ -115,8 +122,8 @@ export default function Page() {
                                     placeholder='Search tv'
                                     className={filters.radio}
                                     value="tv"
-                                    checked={selectedCategory === "tv"}
-                                    onChange={() => setSelectedCategory("tv")}
+                                    checked={selectedType === "tv"}
+                                    onChange={() => setSelectedType("tv")}
                                 />
                                 <label htmlFor="tv">TV</label>
                             </div>
@@ -128,12 +135,13 @@ export default function Page() {
                                     placeholder='Search movie'
                                     className={filters.radio}
                                     value="movie"
-                                    checked={selectedCategory === "movie"}
-                                    onChange={() => setSelectedCategory("movie")}
+                                    checked={selectedType === "movie"}
+                                    onChange={() => setSelectedType("movie")}
                                 />
                                 <label htmlFor="movie">Movie</label>
                             </div>
                         </div>
+                        {/* Search titles */}
                         <div className={filters.group_text}>
                             <div className={filters.group}>
                                 <label>Search titles</label>
@@ -143,6 +151,20 @@ export default function Page() {
                                     value={searchTerm}
                                     onChange={(e) => setSearchTerm(e.target.value)}
                                 />
+                            </div>
+                        </div>
+                        {/* Actors */}
+                        <div className={filters.group_select}>
+                            <div className={filters.group}>
+                                <label>Select Actor</label>
+                                <div className={filters.select}>
+                                    <select onChange={(e) => setSelectedActor(e.target.value)}>
+                                        <option selected value="">Select an actor</option>
+                                        {actors.map((actor, index) => (
+                                            <option key={index} value={actor}>{actor}</option>
+                                        ))} 
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
