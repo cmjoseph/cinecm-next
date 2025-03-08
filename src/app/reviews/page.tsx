@@ -1,10 +1,12 @@
 "use client";
 import Link from "next/link";
-import { useRef, useState, useLayoutEffect, useMemo } from "react";
+import { useRef, useState, useLayoutEffect, useMemo, SelectHTMLAttributes } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { toSlug, getAllActors } from "../_hooks/slug";
+import { toSlug } from "../_hooks/slug";
+import { getAllActors, getAllDirectors, getAllYears, getAllGenres } from "../_hooks/filters";
 import { movies } from "../_hooks/data";
+import { jobold } from "../fonts";
 
 import styles from "../_assets/scss/reviews.module.scss";
 import partial from "../_assets/scss/movie.module.scss";
@@ -16,11 +18,22 @@ export default function Page() {
     const [searchTerm, setSearchTerm]               = useState("");
     const [selectedType, setSelectedType]           = useState("");
     const [selectedActor, setSelectedActor]         = useState("");
+    const [selectedDirector, setSelectedDirector]   = useState("");
+    const [selectedYear, setSelectedYear]           = useState("");
+    const [selectedGenre, setSelectedGenre]         = useState("");
     const [isPanelOpen, setIsPanelOpen]             = useState(false);
 
-    const container = useRef<HTMLDivElement>(null);
-    const panel     = useRef<HTMLDivElement>(null);
-    const reviews   = useRef<HTMLDivElement[]>([]);
+    const container         = useRef<HTMLDivElement>(null);
+    const panel             = useRef<HTMLDivElement>(null);
+    const reviews           = useRef<HTMLDivElement[]>([]);
+    const selectActorRef    = useRef<HTMLSelectElement>(null);
+    const selectDirectorRef = useRef<HTMLSelectElement>(null);
+    const selectYearRef     = useRef<HTMLSelectElement>(null);
+    const selectGenreRef    = useRef<HTMLSelectElement>(null);
+
+    const toggleClass = (e: any, className: string) => {
+        e.parentElement.classList.toggle(className);
+    }
 
     const handleToggle = () => {
         setIsPanelOpen(!isPanelOpen);
@@ -31,18 +44,31 @@ export default function Page() {
         }
     };
 
-    const actors = getAllActors(movies);
+    const handleReset = () => {
+        setSearchTerm('');
+        setSelectedType('');
+        if (selectActorRef.current) {setSelectedActor(''); selectActorRef.current.value = ""};
+        if (selectDirectorRef.current) { setSelectedDirector(''); selectDirectorRef.current.value = ""};
+        if (selectYearRef.current) {setSelectedYear(''); selectYearRef.current.value = ""};
+        if (selectGenreRef.current) {setSelectedGenre(''); selectGenreRef.current.value = ""};
+    };
 
-    console.log(actors);
+    const actors    = getAllActors(movies);
+    const directors = getAllDirectors(movies);
+    const years     = getAllYears(movies);
+    const genres    = getAllGenres(movies);
 
     const filteredMovies = useMemo(() => {
 		return movies.filter((movie: any) => {
 			const matchesSearch = movie.title.toLowerCase().includes(searchTerm.toLowerCase());
 			const matchesType = selectedType ? movie.type === selectedType : true;
             const matchesActor = !selectedActor || movie.actors.includes(selectedActor);
-			return matchesSearch && matchesType && matchesActor;
+            const matchesDirector = !selectedDirector || movie.directors.includes(selectedDirector);
+            const matchesYear = !selectedYear || movie.year === selectedYear;
+            const matchesGenres = !selectedGenre || movie.genres.includes(selectedGenre);
+			return matchesSearch && matchesType && matchesActor && matchesDirector && matchesYear && matchesGenres;
 		});
-	}, [searchTerm, selectedType, selectedActor]);
+	}, [searchTerm, selectedType, selectedActor, selectedDirector, selectedYear, selectedGenre]);
     
     useLayoutEffect(() => {
         if (reviews.current.length === 0) return;
@@ -157,15 +183,62 @@ export default function Page() {
                         <div className={filters.group_select}>
                             <div className={filters.group}>
                                 <label>Select Actor</label>
-                                <div className={filters.select}>
-                                    <select onChange={(e) => setSelectedActor(e.target.value)}>
-                                        <option selected value="">Select an actor</option>
+                                <div className={filters.select} onClick={(e) => toggleClass(e.target, filters.active) }>
+                                    <select defaultValue={""} ref={selectActorRef} className={`${jobold.className}`} onChange={(e) => setSelectedActor(e.target.value)}>
+                                        <option value="">Select an actor</option>
                                         {actors.map((actor, index) => (
                                             <option key={index} value={actor}>{actor}</option>
                                         ))} 
                                     </select>
                                 </div>
                             </div>
+                        </div>
+                        {/* Directors */}
+                        <div className={filters.group_select}>
+                            <div className={filters.group}>
+                                <label>Select Director</label>
+                                <div className={filters.select} onClick={(e) => toggleClass(e.target, filters.active) }>
+                                    <select defaultValue={""} ref={selectDirectorRef} className={`${jobold.className}`} onChange={(e) => setSelectedDirector(e.target.value)}>
+                                        <option value="">Select an director</option>
+                                        {directors.map((director, index) => (
+                                            <option key={index} value={director}>{director}</option>
+                                        ))} 
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        {/* Year */}
+                        <div className={filters.group_select}>
+                            <div className={filters.group}>
+                                <label>Select Year</label>
+                                <div className={filters.select} onClick={(e) => toggleClass(e.target, filters.active) }>
+                                    <select defaultValue={""} ref={selectYearRef} className={`${jobold.className}`} onChange={(e) => setSelectedYear(e.target.value)}>
+                                        <option value="">Select a year</option>
+                                        {years.map((year, index) => (
+                                            <option key={index} value={year}>{year}</option>
+                                        ))} 
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        {/* Year */}
+                        <div className={filters.group_select}>
+                            <div className={filters.group}>
+                                <label>Select Genre</label>
+                                <div className={filters.select} onClick={(e) => toggleClass(e.target, filters.active) }>
+                                    <select defaultValue={""} ref={selectGenreRef} className={`${jobold.className}`} onChange={(e) => setSelectedGenre(e.target.value)}>
+                                        <option value="">Select a genre</option>
+                                        {genres.map((genre, index) => (
+                                            <option key={index} value={genre}>{genre}</option>
+                                        ))} 
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={filters.reset}>
+                            <button onClick={handleReset} className={filters.reset_btn}>
+                                Reset
+                            </button>
                         </div>
                     </div>
                 </div>

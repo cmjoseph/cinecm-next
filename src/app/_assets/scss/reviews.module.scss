@@ -36,14 +36,19 @@
                 text-transform: uppercase;
                 font-weight: bold;
                 cursor: pointer;
+                transition: background-color 0.35s ease;
+                &:hover {
+                    background-color: white;
+                    color: black;
+                }
             }
         }
     }
     .panel {
         position: fixed;
         top: 70px;
-        left: -20vw;
-        width: 20vw;
+        left: -18vw;
+        width: 18vw;
         height: 100vh;
         z-index: 1000;
         backdrop-filter: blur(4px);

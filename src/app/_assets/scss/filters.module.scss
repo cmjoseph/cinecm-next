@@ -63,15 +63,17 @@
                 border: none;
                 height: 40px;
                 outline: 0;
-                padding: 10px;
+                padding: 10px 50px 10px 10px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
                 color: black;
                 text-transform: uppercase;
                 background-image: none;
                 font-weight: bold;
-                padding: 10px;
-            }
-            select::-ms-expand {
-                display: none;
+                &::-ms-expand {
+                    display: none;
+                }
             }
             .select {
                 position: relative;
@@ -79,24 +81,31 @@
                 width: 100%;
                 height: 40px;
                 line-height: 3;
-                background: #5c6664;
-                overflow: hidden;
-            }
-            .select::after {
-                content: '\25BC';
-                position: absolute;
-                top: 0;
-                right: 0;
-                padding: 0 1em;
                 background: white;
-                cursor: pointer;
-                pointer-events: none;
-                transition: .25s all ease;
+                overflow: hidden;
+                &::after {
+                    content: '\25E3';
+                    position: absolute;
+                    height: 40px;
+                    top: -6px;
+                    right: 0;
+                    padding: 0 1em;
+                    background-color: white;
+                    cursor: pointer;
+                    pointer-events: none;
+                    transition: .25s all ease;
+                    transform: rotate(-45deg);
+                    transform-origin: 20px 25px;
+                    &:hover {
+                        color: black;
+                    }
+                }
+                &.active {
+                    &::after {
+                        transform: rotate(135deg);
+                    }
+                }
             }
-            .select:hover::after {
-                color: black;
-            }
-
             select::-webkit-scrollbar {
                 width: 2px;
             }
@@ -107,7 +116,26 @@
                 background: #888;
             }
             select::-webkit-scrollbar-thumb:hover {
-                background: #555;
+                background: black;
+            }
+        }
+    }
+    .reset {
+        position: relative;
+        .reset_btn {
+            appearance: none;
+            background-color: transparent;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            border: 1px solid grey;
+            padding: 10px 20px;
+            transition: background-color 0.35s ease;
+            cursor: pointer;
+            &:hover {
+                background-color: white;
+                color: black;
             }
         }
     }

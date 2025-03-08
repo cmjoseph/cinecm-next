@@ -9,6 +9,7 @@
     padding: 2em 10em;
     display: flex;
     align-items: center;
+    border-top: 1px solid grey;
     .nav {
         display: flex;
         width: 100%;
@@ -31,6 +32,8 @@
             a {
                 display: inline-block;
                 transition: opacity 0.35s ease;
+                text-transform: uppercase;
+                font-size: 18px;
                 opacity: 1;
                 &:hover, &.active {
                    opacity: 0.5;

@@ -1,15 +1,10 @@
 import "./_assets/scss/_reset.scss";
 import "./_assets/scss/_globals.scss";
 import type { Metadata } from "next";
-import { Josefin_Sans } from "next/font/google";
 import Header from "./_components/header";
 import Footer from "./_components/footer";
+import { joreg } from "./fonts";
 import { ReactLenis } from 'lenis/react';
-
-const joreg = Josefin_Sans({
-	weight: '400',
-	subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
 	title: "CMSCOPE - Home",
