@@ -1,26 +1,9 @@
-.home {
+.page {
 	position: relative;
 	width: 100vw;
 	height: 100%;
 	background-color: black;
 	min-height: calc(100vh - 70px);
-}
-
-.reviews {
-	position: relative;
-	width: 100vw;
-	height: 100%;
-	background-color: black;
-	min-height: calc(100vh - 70px);
-}
-
-.single {
-	position: relative;
-	width: 100vw;
-	height: 100%;
-	background-color: purple;
-	min-height: calc(100vh - 70px);
-	padding: 2em;
 }
 
 .about {

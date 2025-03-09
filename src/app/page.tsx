@@ -7,7 +7,7 @@ import styles from "./_assets/scss/page.module.scss";
 
 export default function Home() {
   	return (
-		<div className={styles.home}>
+		<div className={`${styles.home} ${styles.page}`}>
 			<SliderHome reviews={movies} />
 			<Upcoming items={movies} />
 			<About />

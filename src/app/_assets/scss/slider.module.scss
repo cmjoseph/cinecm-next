@@ -1,7 +1,7 @@
 .sliderhome {
     position: relative;
     width: 100vw;
-    height: 100%;
+    height: 100vh;
     overflow: hidden;
     border-bottom: 1px solid grey;
     .active_slide {
@@ -30,6 +30,7 @@
     }
     img.background {
         object-fit: cover;
+        width: 100vw;
         height: 100vh;
         animation: kenburns 50s ease-in-out infinite alternate;
     }

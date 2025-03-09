@@ -7,6 +7,8 @@ import { toSlug } from "../_hooks/slug";
 import { getAllActors, getAllDirectors, getAllYears, getAllGenres } from "../_hooks/filters";
 import { movies } from "../_hooks/data";
 import { jobold } from "../fonts";
+import { AiOutlineMenuFold } from "react-icons/ai";
+import { RiCloseLargeFill } from "react-icons/ri";
 
 import styles from "../_assets/scss/reviews.module.scss";
 import partial from "../_assets/scss/movie.module.scss";
@@ -92,20 +94,20 @@ export default function Page() {
     }, []);
 
     return (
-        <div className={styles.reviews}>
+        <div className={`${styles.reviews} ${styles.page}`}>
             <div className={styles.container}>
                 <div className={styles.top}>
                     <h1>Reviews</h1>
                     {/* Trigger filters */}
                     <button onClick={handleToggle} className={`${isPanelOpen ? styles.open : ''}`}>
-                        {isPanelOpen ? 'Close Filters' : 'Filters'}
+                        {isPanelOpen ? <RiCloseLargeFill /> : <AiOutlineMenuFold />}
                     </button>
                 </div>
                 <div className={partial.grid} ref={container}>
                 {/* All Movies */}
                 {filteredMovies.length > 0 ? (
                     filteredMovies.map((movie, index) => (
-                        <Link key={index} href={`/reviews/${toSlug(movie.title)}`} className={partial.grid_item} ref={(el: any) => { if (reviews.current) {(reviews.current[index] = el)} }}>
+                        <Link key={index} href={`/reviews/${toSlug(movie.title)}`} className={`${partial.grid_item} ${partial.grid_item_reviews}`} ref={(el: any) => { if (reviews.current) {(reviews.current[index] = el)} }}>
                             <div className={partial.poster}>
                                 <div className={partial.overlay}>
                                     <h3>{movie.title}</h3>

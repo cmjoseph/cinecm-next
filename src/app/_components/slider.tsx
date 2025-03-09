@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import { EffectFade, Pagination, Autoplay } from 'swiper/modules';
 import { Josefin_Sans } from "next/font/google";
-import styles from "../_assets/scss/slider.module.scss";
-import Image from "next/image";
 import { toSlug } from '../_hooks/slug';
+import Image from "next/image";
 import Link from "next/link";
 import Button from "../_partials/button";
+import styles from "../_assets/scss/slider.module.scss";
 import 'swiper/scss';
 import 'swiper/scss/effect-fade';
 import 'swiper/scss/navigation';
@@ -31,7 +31,7 @@ export default function Slider({reviews}: any) {
                     height={1080}
                     alt={review.title}
                     priority={true}
-                    style={{ width: "100%"}}
+                    style={{ width: "100%", height: "auto" }}
                     className={styles.background}
                 />
                 <div className={`${styles.card} ${jobold.className}`}>
@@ -84,7 +84,7 @@ export default function Slider({reviews}: any) {
                 delay: 5000,
                 disableOnInteraction: false,
             }}
-            onSwiper={(swiper) => console.log(swiper)}
+            // onSwiper={(swiper) => console.log(swiper)}
             pagination={{ clickable: true }}
             onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
             modules={[EffectFade, Pagination, Autoplay]}
