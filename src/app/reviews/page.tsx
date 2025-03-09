@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useRef, useState, useLayoutEffect, useMemo, SelectHTMLAttributes } from "react";
+import { useRef, useState, useLayoutEffect, useMemo } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { toSlug } from "../_hooks/slug";
