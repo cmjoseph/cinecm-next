@@ -1,6 +1,7 @@
 'use client'
-
-import React, { useEffect } from 'react'
+import styles from "../_assets/scss/single.module.scss";
+import React, { useEffect, useRef, useState } from 'react';
+import Script from "next/script";
 
 interface YouTubePlayerProps {
     videoId: string
@@ -12,33 +13,117 @@ declare global {
     }
 }
 
-const YouTubePlayer: React.FC<YouTubePlayerProps> = ({ videoId }) => {
-    useEffect(() => {
-        // Load the IFrame Player API code asynchronously
-        const tag = document.createElement('script')
-        tag.src = "https://www.youtube.com/iframe_api"
-        const firstScriptTag = document.getElementsByTagName('script')[0]
-        if (firstScriptTag.parentNode) firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        let player = null;
-        // Create the player once the API code downloads
-        window.onYouTubeIframeAPIReady = () => {
-            player = new YT.Player('player', {
-                height: '390',
-                width: '640',
-                videoId: videoId,
-                playerVars: {
-                    'playsinline': 1,
-                    'autoplay': 0,
-                    'mute': 1
-                }
-            })
-        }
-        return () => {
-            window.onYouTubeIframeAPIReady = null
-        }
-    }, [videoId])
+interface YT {
+    Player: {
+        new (elementId: string, options: YT.PlayerOptions): YT.Player;
+    };
+}
 
-    return <div id="player"></div>
+declare namespace YT {
+    interface Player {
+        destroy(): void;
+        seekTo(seconds: number, allowSeekAhead?: boolean): void;
+        pauseVideo(): void;
+        playVideo(): void;
+    }
+
+    interface PlayerOptions {
+        height?: string | number;
+        width?: string | number;
+        videoId?: string;
+        events?: {
+            onReady?: (event: any) => void;
+            onStateChange?: (event: any) => void;
+        };
+    }
+
+    interface PlayerEvent {
+        target: Player;
+    }
+}
+
+interface Window {
+    onYouTubeIframeAPIReady?: () => void;
+    YT: YT;
+}
+
+const YouTubePlayer: React.FC<YouTubePlayerProps> = ({ videoId }) => {
+    const playerRef = useRef(null);
+    const [player, setPlayer] = useState(null);
+    
+    const onPlayerReady = (event: YT.PlayerEvent) => {
+        event.target.seekTo(0);
+        event.target.playVideo();
+    }
+    
+    const onPlayerStateChange = (event: any) => { 
+        const duration = event.target.getDuration();
+        const iframe = document.querySelector('iframe');
+        
+        if (event.data === (window as any).YT.PlayerState.PLAYING) {
+            setInterval(function () {
+                let time = event.target.getCurrentTime();
+                if(time > (duration - 20)) {          
+                    if (iframe) iframe.className = styles.js_trailer_end;
+                }
+            }, 1000)
+        }
+    }
+    useEffect(() => {
+        if (!(window as any).YT) return;
+        
+        const loadPlayer = () => {
+            if (playerRef.current && !player) {
+                const newPlayer = new (window as any).YT.Player(playerRef.current, {
+                    height: "360",
+                    width: "640",
+                    videoId,
+                    playerVars: {
+                        autoplay: 1, 
+                        mute: 1,
+                        controls: 0,
+                    },
+                    events: {
+                        onReady: onPlayerReady,
+                        onStateChange: onPlayerStateChange
+                    }
+                });
+                setPlayer(newPlayer);
+            }
+        };
+    
+        loadPlayer();
+      }, [videoId]);
+
+    return (
+        <>
+            <Script
+                src="https://www.youtube.com/iframe_api"
+                strategy="lazyOnload"
+                onLoad={() => {
+                    if ((window as any).YT) {
+                        window.onYouTubeIframeAPIReady = () => {
+                            setPlayer(new (window as any).YT.Player(playerRef.current, {
+                                height: "360",
+                                width: "640",
+                                videoId,
+                                playerVars: {
+                                    autoplay: 1,
+                                    mute: 1,
+                                    controls: 0,
+                                },
+                                events: {
+                                    onReady: onPlayerReady,
+                                    onStateChange: onPlayerStateChange
+                                }
+                            }));
+                        };
+                    }
+                }}
+            />
+            <div ref={playerRef}></div>
+        </>
+    )
 }
 
 export default YouTubePlayer

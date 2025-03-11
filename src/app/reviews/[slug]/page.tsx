@@ -3,7 +3,7 @@ import styles from "../../_assets/scss/single.module.scss";
 import Image from "next/image";
 import React from 'react';
 import YouTubePlayer from '../../_components/youtube';
-import ToggleButton from '../../_partials/toggle';
+import ShowTrailer from '../../_partials/trailer';
 
 export async function generateMetadata() {
     return {
@@ -47,7 +47,7 @@ export default async function Page({params}: {params: Promise<{ slug: string }>}
                             <h1>Terminator 2 : Jugement Day</h1>
                             <div className={styles.hero_rate_trailer}>
                                 <div className={`${styles.ratebox} ${styles.great}`}><span className={styles.rate}>94%</span></div>
-                                <ToggleButton />
+                                <ShowTrailer />
                             </div>
                             <p className={styles.description}>
                                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis odit quibusdam voluptatum rerum nulla facere cumque numquam tempore eos provident, doloremque voluptates atque ullam? Recusandae labore voluptatem nesciunt culpa eveniet facere quasi non animi a laboriosam. Magni id facilis iusto!

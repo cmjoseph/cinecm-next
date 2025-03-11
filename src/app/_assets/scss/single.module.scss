@@ -15,21 +15,28 @@
                 width: 100%;
                 height: 100%;
                 z-index: 500;
-                opacity: 0.8;
+                opacity: 0.6;
             }
             img {
+                position: relative;
+                z-index: 50;
                 object-fit: cover;
                 width: 100vw;
                 height: 100%;
             }
             iframe {
                 position: absolute;
-                width: 100vw;
-                height: 100vh;
-                top: 0;
-                left: 0;
+                width: 150%;
+                height: 150%;
+                top: 50%;
+                left: 50%;
                 z-index: 100;
-                opacity: 0;
+                opacity: 1;
+                transform: translate(-50%, -50%);
+                transition: opacity 0.5s ease;
+                &.js_trailer_end {
+                    opacity: 0;
+                }
             }
         }
         &_over {
@@ -106,6 +113,7 @@
                             }
                         }
                         button {
+                            margin-left: -4em;
                             appearance: none;
                             border: 1px solid grey;
                             padding: 15px 30px;
