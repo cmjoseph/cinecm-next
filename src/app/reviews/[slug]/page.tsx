@@ -3,7 +3,7 @@ import styles from "../../_assets/scss/single.module.scss";
 import Image from "next/image";
 import React from 'react';
 import YouTubePlayer from '../../_components/youtube';
-import ShowTrailer from '../../_partials/trailer';
+import ModalTrailer from '../../_partials/trailer';
 
 export async function generateMetadata() {
     return {
@@ -42,12 +42,12 @@ export default async function Page({params}: {params: Promise<{ slug: string }>}
                                 style={{ width: "450px", height: "auto" }}
                                 className={styles.poster}
                             />
+                            <ModalTrailer videoId="DX1Y8e7i6cw" />
                         </div>
                         <div className={styles.hero_content_right}>
                             <h1>Terminator 2 : Jugement Day</h1>
                             <div className={styles.hero_rate_trailer}>
                                 <div className={`${styles.ratebox} ${styles.great}`}><span className={styles.rate}>94%</span></div>
-                                <ShowTrailer />
                             </div>
                             <p className={styles.description}>
                                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis odit quibusdam voluptatum rerum nulla facere cumque numquam tempore eos provident, doloremque voluptates atque ullam? Recusandae labore voluptatem nesciunt culpa eveniet facere quasi non animi a laboriosam. Magni id facilis iusto!
@@ -75,7 +75,36 @@ export default async function Page({params}: {params: Promise<{ slug: string }>}
                 </div>
             </div>
             <div className={styles.container}>
-                <h2>Reviews Single {slug}</h2>
+                <h2>Overview</h2>
+                <div className={styles.overview}>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore nam ut tempore, laudantium quam hic dolore facere aliquid non ex neque debitis? Autem suscipit tempora itaque consequatur fuga consequuntur minus quis, aperiam sint repudiandae cumque, tempore totam molestiae nobis quaerat, optio ullam molestias qui natus. Molestias harum sequi ullam similique iste laudantium deserunt, necessitatibus repellat ipsam magnam nulla. Quod numquam dolor, illo ad deleniti assumenda sequi minima labore eius maiores explicabo quia accusamus! Doloremque mollitia temporibus quisquam neque dolorem, quasi expedita sit accusantium repellendus repudiandae ad error totam dignissimos exercitationem qui necessitatibus et voluptatum eos perferendis quidem minus odio? Sed.</p>
+                </div>
+                <div className={styles.verdict}>
+                    <div className={styles.good}>
+                        <h3>Good</h3>
+                        <ul>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, sapiente?</li>
+                            <li>Aut dolore consequatur enim doloremque porro nulla unde accusamus voluptates!</li>
+                            <li>Similique ipsa fugit quas, itaque odit molestiae perferendis laudantium debitis!</li>
+                            <li>Delectus suscipit nulla provident laudantium dignissimos nam amet labore earum!</li>
+                            <li>Odit sed quisquam error repellendus omnis? Soluta blanditiis quaerat cupiditate.</li>
+                        </ul>
+                    </div>
+                    <div className={styles.bad}>
+                        <h3>Bad</h3>
+                        <ul>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, sapiente?</li>
+                            <li>Aut dolore consequatur enim doloremque porro nulla unde accusamus voluptates!</li>
+                            <li>Similique ipsa fugit quas, itaque odit molestiae perferendis laudantium debitis!</li>
+                            <li>Delectus suscipit nulla provident laudantium dignissimos nam amet labore earum!</li>
+                            <li>Odit sed quisquam error repellendus omnis? Soluta blanditiis quaerat cupiditate.</li>
+                            <li>Delectus suscipit nulla provident laudantium dignissimos nam amet labore earum!</li>
+                            <li>Odit sed quisquam error repellendus omnis? Soluta blanditiis quaerat cupiditate.</li>
+                            <li>Delectus suscipit nulla provident laudantium dignissimos nam amet labore earum!</li>
+                            <li>Odit sed quisquam error repellendus omnis? Soluta blanditiis quaerat cupiditate.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     )

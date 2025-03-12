@@ -59,7 +59,7 @@
                     img {
                         width: 450px;
                         object-fit: cover;
-                        max-width: fit-content;
+                        max-width: none;
                         box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
                     }
                 }
@@ -186,11 +186,47 @@
         }
     }
     .container {
-        padding: 8em 10em 5em;
+        padding: 5em 10em 5em;
         display: flex;
         width: 100vw;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        background-color: white;
+        h2 {
+            font-size: 42px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            color: black;
+            font-weight: bold;
+        }
+        .overview {
+            position: relative;
+            margin-bottom: 2em;
+            p {
+                color: black;
+                font-size: 24px;
+                line-height: 1.2;
+            }
+        }
+        .verdict {
+            display: flex;
+            width: 100%;
+            flex: 0 0 1;
+            border: 1px solid grey;
+            .good {
+                width: 50%;
+                border-right: 1px solid grey;
+                padding: 2em;
+                font-size: 24px;
+                color: black;
+            }
+            .bad {
+                width: 50%;
+                padding: 2em;
+                font-size: 24px;
+                color: black;
+            }
+        }
     }
 }

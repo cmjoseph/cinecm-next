@@ -42,11 +42,6 @@ declare namespace YT {
     }
 }
 
-interface Window {
-    onYouTubeIframeAPIReady?: () => void;
-    YT: YT;
-}
-
 const YouTubePlayer: React.FC<YouTubePlayerProps> = ({ videoId }) => {
     const playerRef = useRef(null);
     const [player, setPlayer] = useState(null);
@@ -101,6 +96,7 @@ const YouTubePlayer: React.FC<YouTubePlayerProps> = ({ videoId }) => {
                 src="https://www.youtube.com/iframe_api"
                 strategy="lazyOnload"
                 onLoad={() => {
+                    window.onYouTubeIframeAPIReady = null;
                     if ((window as any).YT) {
                         window.onYouTubeIframeAPIReady = () => {
                             setPlayer(new (window as any).YT.Player(playerRef.current, {
