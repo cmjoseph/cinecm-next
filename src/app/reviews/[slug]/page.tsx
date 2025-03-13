@@ -1,9 +1,12 @@
-import global from "../../_assets/scss/page.module.scss";
 import styles from "../../_assets/scss/single.module.scss";
+import global from "../../_assets/scss/page.module.scss";
+import fonts from "../../_assets/scss/_fonts.scss";
 import Image from "next/image";
 import React from 'react';
 import YouTubePlayer from '../../_components/youtube';
 import ModalTrailer from '../../_partials/trailer';
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export async function generateMetadata() {
     return {
@@ -47,7 +50,7 @@ export default async function Page({params}: {params: Promise<{ slug: string }>}
                         <div className={styles.hero_content_right}>
                             <h1>Terminator 2 : Jugement Day</h1>
                             <div className={styles.hero_rate_trailer}>
-                                <div className={`${styles.ratebox} ${styles.great}`}><span className={styles.rate}>94%</span></div>
+                                <div className={`${styles.ratebox} ${styles.mediocre}`}><span className={styles.rate}>94%</span></div>
                             </div>
                             <p className={styles.description}>
                                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis odit quibusdam voluptatum rerum nulla facere cumque numquam tempore eos provident, doloremque voluptates atque ullam? Recusandae labore voluptatem nesciunt culpa eveniet facere quasi non animi a laboriosam. Magni id facilis iusto!
@@ -81,7 +84,7 @@ export default async function Page({params}: {params: Promise<{ slug: string }>}
                 </div>
                 <div className={styles.verdict}>
                     <div className={styles.good}>
-                        <h3>Good</h3>
+                        <h3 className={fonts.font}>The Good</h3>
                         <ul>
                             <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, sapiente?</li>
                             <li>Aut dolore consequatur enim doloremque porro nulla unde accusamus voluptates!</li>
@@ -91,7 +94,7 @@ export default async function Page({params}: {params: Promise<{ slug: string }>}
                         </ul>
                     </div>
                     <div className={styles.bad}>
-                        <h3>Bad</h3>
+                        <h3 className={fonts.font}>The Bad</h3>
                         <ul>
                             <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, sapiente?</li>
                             <li>Aut dolore consequatur enim doloremque porro nulla unde accusamus voluptates!</li>

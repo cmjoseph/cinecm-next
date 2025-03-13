@@ -5,6 +5,7 @@
         width: 100%;
         height: 100vh;
         overflow: hidden;
+        border: 1px solid grey;
         &_under {
             position: relative;
             .overlay {
@@ -95,14 +96,20 @@
                             justify-content: flex-end;
                             backdrop-filter: blur(3px);
                             background-color: transparent;
+                            &.spectacular {
+                                background-color: rgb(170, 129, 30, 0.8);
+                            }
                             &.great {
                                 background-color: rgb(0, 128, 0, 0.8);
                             }
                             &.average {
-                                background-color: rgb(82, 82, 59);
+                                background-color: rgb(82, 82, 59, 0.8);
                             }
                             &.horrible {
-                                background-color: red;
+                                background-color: rgb(255, 0, 0, 0.8);
+                            }
+                            &.mediocre {
+                                background-color: rgba(68, 32, 2, 0.8);
                             }
                             span.rate {
                                 position: relative;
@@ -192,21 +199,20 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-color: white;
+        background-color: black;
         h2 {
             font-size: 42px;
             text-transform: uppercase;
-            margin-bottom: 30px;
-            color: black;
+            color: white;
             font-weight: bold;
         }
         .overview {
             position: relative;
-            margin-bottom: 2em;
+            margin: 4em 0;
             p {
-                color: black;
+                color: white;
                 font-size: 24px;
-                line-height: 1.2;
+                line-height: 1.4;
             }
         }
         .verdict {
@@ -214,19 +220,43 @@
             width: 100%;
             flex: 0 0 1;
             border: 1px solid grey;
-            .good {
-                width: 50%;
-                border-right: 1px solid grey;
-                padding: 2em;
-                font-size: 24px;
-                color: black;
+            background-color: transparent;
+            // background-image: url('/concrete.jpg');
+            // background-repeat: repeat;
+            h3 {
+                text-align: center;
+                font-family: 'Arnel Vintage Demo';
+                color: green;
+                font-size: 92px;
+                text-transform: uppercase;
+                margin-bottom: 30px;
             }
-            .bad {
+            ul {
+                list-style-type: disc;
+                padding-left: 2em;
+                li {
+                    margin-bottom: 15px;
+                    line-height: 1.2;
+                }
+            }
+            div {
                 width: 50%;
                 padding: 2em;
                 font-size: 24px;
-                color: black;
+                color: white;
+                &.good {
+                    border-right: 1px solid grey;
+                }
+                &.bad {
+                    h3 {
+                        color: red;
+                    }
+                }
             }
         }
     }
+}
+
+@keyframes shine {
+    to{background-position: right}
 }

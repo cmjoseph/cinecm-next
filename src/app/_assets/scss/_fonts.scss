@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'Arnel Vintage Demo';
+    src: url('/fonts/ArnelVintageDemo-Stamp.eot');
+    src: url('/fonts/ArnelVintageDemo-Stamp.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/ArnelVintageDemo-Stamp.woff2') format('woff2'),
+        url('/fonts/ArnelVintageDemo-Stamp.woff') format('woff'),
+        url('/fonts/ArnelVintageDemo-Stamp.ttf') format('truetype'),
+        url('/fonts/ArnelVintageDemo-Stamp.svg#ArnelVintageDemo-Stamp') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.font {
+    font-family: 'Arnel Vintage Demo';
+}
