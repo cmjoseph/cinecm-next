@@ -1,61 +1,114 @@
 .container {
     padding: 5em 10em 5em;
-    display: flex;
     width: 100vw;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     background-color: black;
     h2 {
         font-size: 42px;
         text-transform: uppercase;
         color: white;
         font-weight: bold;
+        text-align: center;
+        margin-bottom: 1em;
     }
-    .overview {
-        position: relative;
-        margin: 4em 0;
-        p {
-            color: white;
-            font-size: 24px;
-            line-height: 1.4;
-        }
-    }
-    .verdict {
+    .wrapper {
         display: flex;
-        width: 100%;
-        flex: 0 0 1;
-        border: 1px solid grey;
-        background-color: transparent;
-        // background-image: url('/concrete.jpg');
-        // background-repeat: repeat;
-        h3 {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .overview {
+            position: relative;
+            border: 1px solid grey;
+            border-bottom: none;
+            padding: 4em;
             text-align: center;
-            font-family: 'Arnel Vintage Demo';
-            color: green;
-            font-size: 92px;
-            text-transform: uppercase;
-            margin-bottom: 30px;
-        }
-        ul {
-            list-style-type: disc;
-            padding-left: 2em;
-            li {
-                margin-bottom: 15px;
-                line-height: 1.2;
+            h3 {
+                color: white;
+                text-transform: uppercase;
+                font-size: 24px;
+                font-weight: bold;
+                margin-bottom: 30px;
+            }
+            p {
+                color: white;
+                font-size: 24px;
+                line-height: 1.4;
             }
         }
-        div {
-            width: 50%;
-            padding: 2em;
-            font-size: 24px;
-            color: white;
-            &.good {
-                border-right: 1px solid grey;
+        .verdict {
+            display: flex;
+            width: 100%;
+            flex: 0 0 1;
+            border: 1px solid grey;
+            background-color: transparent;
+            h3 {
+                text-align: center;
+                font-family: 'Arnel Vintage Demo';
+                color: green;
+                font-size: 92px;
+                text-transform: uppercase;
+                margin-bottom: 30px;
             }
-            &.bad {
-                h3 {
-                    color: red;
+            ul {
+                list-style-type: disc;
+                padding-left: 2em;
+                li {
+                    margin-bottom: 15px;
+                    line-height: 1.2;
+                }
+            }
+            div {
+                width: 50%;
+                padding: 2em;
+                font-size: 24px;
+                color: white;
+                &.good {
+                    border-right: 1px solid grey;
+                }
+                &.bad {
+                    h3 {
+                        color: red;
+                    }
+                }
+            }
+        }
+        .seasons {
+            position: relative;
+            .tabs {
+                position: relative;
+                z-index: 200;
+                border: 1px solid grey;
+                border-bottom: none;
+                display: inline-block;
+                button.tab {
+                    appearance: none;
+                    color: white;
+                    background-color: transparent;
+                    border: none;
+                    padding: 1em 2em;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    cursor: pointer;
+                    height: 45px;
+                    + button {
+                        border-left: 1px solid grey;
+                    }
+                    &.active {
+                        background-color: white;
+                        color: black;
+                    }
+                }
+            }
+            .season {
+                position: absolute;
+                top: 45px;
+                left: 0;
+                z-index: 50;
+                opacity: 0;
+                &.active {
+                    top: 0;
+                    position: relative;
+                    z-index: 100;
+                    opacity: 1;
                 }
             }
         }

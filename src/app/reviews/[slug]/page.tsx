@@ -14,6 +14,8 @@ export async function generateMetadata() {
 }
 
 const data = [
+    ['tv'],
+    [1, 2, 3],
     ['Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, sapiente?'],
     [
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, sapiente?', 
@@ -48,7 +50,7 @@ export default async function Page({params}: {params: Promise<{ slug: string, ra
                         style={{ width: "100%", height: "auto" }}
                         className={styles.background}
                     />
-                    {/* <YouTubePlayer videoId="DX1Y8e7i6cw" /> */}
+                    <YouTubePlayer videoId="DX1Y8e7i6cw" />
                 </div>
                 <div className={styles.hero_over}>
                     <div className={styles.hero_content}>
@@ -59,10 +61,9 @@ export default async function Page({params}: {params: Promise<{ slug: string, ra
                                 height={680}
                                 alt='Terminator 2'
                                 priority={true}
-                                style={{ width: "450px", height: "auto" }}
                                 className={styles.poster}
                             />
-                            {/* <ModalTrailer videoId="DX1Y8e7i6cw" /> */}
+                            <ModalTrailer videoId="DX1Y8e7i6cw" />
                         </div>
                         <div className={styles.hero_content_right}>
                             <h1>Terminator 2 : Jugement Day</h1>
