@@ -1,0 +1,63 @@
+.container {
+    padding: 5em 10em 5em;
+    display: flex;
+    width: 100vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    h2 {
+        font-size: 42px;
+        text-transform: uppercase;
+        color: white;
+        font-weight: bold;
+    }
+    .overview {
+        position: relative;
+        margin: 4em 0;
+        p {
+            color: white;
+            font-size: 24px;
+            line-height: 1.4;
+        }
+    }
+    .verdict {
+        display: flex;
+        width: 100%;
+        flex: 0 0 1;
+        border: 1px solid grey;
+        background-color: transparent;
+        // background-image: url('/concrete.jpg');
+        // background-repeat: repeat;
+        h3 {
+            text-align: center;
+            font-family: 'Arnel Vintage Demo';
+            color: green;
+            font-size: 92px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 2em;
+            li {
+                margin-bottom: 15px;
+                line-height: 1.2;
+            }
+        }
+        div {
+            width: 50%;
+            padding: 2em;
+            font-size: 24px;
+            color: white;
+            &.good {
+                border-right: 1px solid grey;
+            }
+            &.bad {
+                h3 {
+                    color: red;
+                }
+            }
+        }
+    }
+}

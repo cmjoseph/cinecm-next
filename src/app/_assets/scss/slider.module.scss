@@ -69,7 +69,6 @@
                 transition-delay: 0.75s;
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
                 &_top {
                     h3 {
                         font-size: 62px;
@@ -89,7 +88,7 @@
                     }
                 }
                 .ratebox {
-                    margin: 15px 0;
+                    margin: 15px 0 30px;
                     position: relative;
                     border: 1px solid white;
                     padding: 15px;
@@ -100,6 +99,9 @@
                     justify-content: center;
                     backdrop-filter: blur(3px);
                     background-color: transparent;
+                    &.spectacular {
+                        background-color: rgb(170, 129, 30, 0.8);
+                    }
                     &.great {
                         background-color: green;
                     }
