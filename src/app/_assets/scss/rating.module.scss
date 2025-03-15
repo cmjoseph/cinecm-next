@@ -12,6 +12,20 @@
     justify-content: flex-end;
     backdrop-filter: blur(3px);
     background-color: transparent;
+    @media (max-width: 1440px) {
+        padding: 10px 2em;
+        height: 70px;
+    }
+    @media (max-width: 1024px) {
+        width: 150px;
+        left: -4em;
+    }
+    @media (max-width: 768px) {
+        width: 100px;
+        left: 0;
+        border-left: 1px solid white;
+        justify-content: center;
+    }
     &.spectacular {
         background-color: rgb(170, 129, 30, 0.8);
     }
@@ -33,5 +47,11 @@
         font-size: 42px;
         font-weight: bold;
         color: white;
+        @media (max-width: 1440px) {
+            font-size: 32px;
+        }
+        @media (max-width: 768px) {
+            font-size: 24px;
+        }
     }
 }

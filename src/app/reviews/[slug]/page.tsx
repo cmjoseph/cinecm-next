@@ -14,7 +14,7 @@ export async function generateMetadata() {
 }
 
 const data = [
-    ['tv'],
+    ['movie'],
     [1, 2, 3],
     ['Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, sapiente?'],
     [
@@ -35,7 +35,7 @@ const data = [
 
 export default async function Page({params}: {params: Promise<{ slug: string, rate: string, data: any[] }>}) {
     const {slug} = (await params);
-
+    
     return (
         <div className={`${styles.single} ${global.page}`}>
             <div className={styles.hero}>
@@ -46,8 +46,7 @@ export default async function Page({params}: {params: Promise<{ slug: string, ra
                         width={1920}
                         height={1080}
                         alt='Terminator 2'
-                        priority={true}
-                        style={{ width: "100%", height: "auto" }}
+                        style={{ width: "100%", height: "100%" }}
                         className={styles.background}
                     />
                     <YouTubePlayer videoId="DX1Y8e7i6cw" />
@@ -55,12 +54,12 @@ export default async function Page({params}: {params: Promise<{ slug: string, ra
                 <div className={styles.hero_over}>
                     <div className={styles.hero_content}>
                         <div className={styles.hero_content_left}>
-                            <Image
+                            <Image 
                                 src='/images/movies/terminator2/poster.webp'
                                 width={450}
                                 height={680}
                                 alt='Terminator 2'
-                                priority={true}
+                                style={{ width: "100%", height: "auto" }}
                                 className={styles.poster}
                             />
                             <ModalTrailer videoId="DX1Y8e7i6cw" />
