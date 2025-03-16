@@ -1,14 +1,25 @@
 .container {
-    padding: 5em 10em 5em;
+    padding: 5rem 10rem 5rem;
     width: 100vw;
     background-color: black;
+    @media (max-width: 1440px) {
+        top: 3px;
+        font-size: 32px;
+        padding: 4rem;
+    }
+    @media (max-width: 1024px) {
+        padding: 4rem 2rem;
+    }
     h2 {
         font-size: 42px;
         text-transform: uppercase;
         color: white;
         font-weight: bold;
         text-align: center;
-        margin-bottom: 1em;
+        margin-bottom: 2rem;
+        @media (max-width: 1024px) {
+            font-size: 32px;
+        }
     }
     .wrapper {
         display: flex;
@@ -19,9 +30,13 @@
             position: relative;
             border: 1px solid grey;
             border-bottom: none;
-            padding: 4em;
+            padding: 4rem;
             text-align: center;
             width: 100%;
+            line-height: 1.2;
+            @media (max-width: 1024px) {
+                padding: 2rem;
+            }
             h3 {
                 color: white;
                 text-transform: uppercase;
@@ -32,7 +47,9 @@
             p {
                 color: white;
                 font-size: 24px;
-                line-height: 1.4;
+                @media (max-width: 768px) {
+                    font-size: 16px;
+                }
             }
         }
         .verdict {
@@ -41,6 +58,9 @@
             flex: 0 0 1;
             border: 1px solid grey;
             background-color: transparent;
+            @media (max-width: 540px) {
+               flex-direction: column;
+            }
             h3 {
                 text-align: center;
                 font-family: 'Arnel Vintage Demo';
@@ -48,22 +68,41 @@
                 font-size: 92px;
                 text-transform: uppercase;
                 margin-bottom: 30px;
+                @media (max-width: 768px) {
+                    font-size: 42px;
+                }
             }
             ul {
                 list-style-type: disc;
-                padding-left: 2em;
+                padding-left: 2rem;
+                @media (max-width: 768px) {
+                    padding-left: 1rem;
+                }
                 li {
                     margin-bottom: 15px;
                     line-height: 1.2;
+                    @media (max-width: 768px) {
+                        font-size: 16px;
+                    }
                 }
             }
             div {
                 width: 50%;
-                padding: 2em;
+                padding: 2rem;
                 font-size: 24px;
                 color: white;
+                @media (max-width: 768px) {
+                    padding: 2rem 1rem;
+                }
+                @media (max-width: 540px) {
+                    width: 100%;
+                }
                 &.good {
                     border-right: 1px solid grey;
+                    @media (max-width: 540px) {
+                        border-bottom: 1px solid grey;
+                        border-right: none;
+                    }
                 }
                 &.bad {
                     h3 {
@@ -85,7 +124,7 @@
                     color: white;
                     background-color: transparent;
                     border: none;
-                    padding: 1em 2em;
+                    padding: 1rem 2rem;
                     text-transform: uppercase;
                     font-weight: bold;
                     cursor: pointer;

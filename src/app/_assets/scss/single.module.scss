@@ -6,8 +6,16 @@
         height: 100vh;
         overflow: hidden;
         border: 1px solid grey;
+        @media (max-width: 768px) {
+            min-height: 100vh;
+            overflow: visible;
+            height: auto;
+            padding: 0 2rem;
+        }
         &_under {
-            position: relative;
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             .overlay {
@@ -40,6 +48,9 @@
                 &.js_trailer_end {
                     opacity: 0;
                 }
+                @media (max-width: 1024px) {
+                    display: none;
+                }
             }
         }
         &_over {
@@ -52,22 +63,36 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            @media (max-width: 768px) {
+                position: relative;
+                height: auto;
+                top: 0;
+                padding: 100px 0 70px;
+            }
             .hero_content {
                 display: flex;
-                margin: 0 10em;
+                padding: 0 10em;
                 @media (max-width: 1024px) {
-                   margin: 0 4em;
+                    padding: 0 4rem;
+                }
+                @media (max-width: 768px) {
+                   flex-direction: column;
+                   padding: 0;
                 }
                 &_left {
                     position: relative;
                     z-index: 200;
-                    margin-right: 2em;
-                    width: 450px;
+                    margin-right: 2rem;
+                    width: 350px;
                     @media (max-width: 1440px) {
                         width: 350px;
                     }
                     @media (max-width: 1024px) {
-                       margin-left: 1em;
+                       margin-right: 1rem;
+                    }
+                    @media (max-width: 768px) {
+                        width: 100%;
+                        margin-right: 0;
                     }
                     img {
                         width: 100%;
@@ -77,14 +102,18 @@
                     }
                 }
                 &_right {
-                    width: calc(100% - 450px);
+                    width: calc(100% - 350px);
                     position: relative;
                     z-index: 100;
                     display: flex;
                     flex-direction: column;
-                    margin-left: 2em;
+                    margin-left: 2rem;
                     @media (max-width: 1440px) {
                         width: 100%;
+                    }
+                    @media (max-width: 768px) {
+                        width: 100%;
+                        margin-left: 0;
                     }
                     h1 {
                         font-size: 52px;
@@ -92,8 +121,13 @@
                         margin-bottom: 15px;
                         color: white;
                         font-weight: bold;
+                        line-height: 1.2;
                         @media (max-width: 1440px) {
                             font-size: 32px;
+                        }
+                        @media (max-width: 768px) {
+                            margin: 30px 0;
+                            font-size: 24px;
                         }
                     }
                     .hero_rate {
@@ -106,14 +140,16 @@
                         font-size: 24px;
                         color: white;
                         margin-bottom: 30px;
-                        max-width: 75%;
+                        line-height: 1.2;
                         @media (max-width: 1440px) {
                             font-size: 20px;
+                        }
+                        @media (max-width: 768px) {
+                            font-size: 16px;
                         }
                     }
                     .informations {
                         display: table;
-                        max-width: 75%;
                         border: 1px solid grey;
                         border-bottom: none;
                         .directors, .cast, .genres, .year {
@@ -125,6 +161,11 @@
                             @media (max-width: 1440px) {
                                 font-size: 20px;
                             }
+                            @media (max-width: 768px) {
+                                font-size: 16px;
+                                display: flex;
+                                flex-direction: column;
+                            }
                             span.prefix {
                                 display: table-cell;
                                 font-size: 24px;
@@ -133,16 +174,32 @@
                                 background-color: transparent;
                                 color: white;
                                 border-right: 1px solid grey;
-                                width: 118px;
+                                width: 160px;
                                 vertical-align: middle;
+                                font-weight: bold;
+                                background-color: rgb(255, 255, 255, 0.8);
+                                color: black;
                                 @media (max-width: 1440px) {
                                     font-size: 20px;
+                                }
+                                @media (max-width: 768px) {
+                                    font-size: 16px;
+                                    width: 100%;
+                                    border-bottom: 1px solid grey;
+                                    text-align: center;
+                                    padding: 10px;
                                 }
                             }
                             span.data {
                                 display: table-cell;
                                 padding: 15px;
                                 line-height: 1.4;
+                                width: calc(100% - 160px);
+                                @media (max-width: 768px) {
+                                    font-size: 16px;
+                                    text-align: center;
+                                    width: 100%;
+                                }
                             }
                         }
                         .cast, .genres, .year {
