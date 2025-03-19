@@ -31,7 +31,7 @@ export default function Slider({reviews}: any) {
                     height={1080}
                     alt={review.title}
                     priority={true}
-                    style={{ width: "100%", height: "auto" }}
+                    style={{ width: "100%", height: "100%" }}
                     className={styles.background}
                 />
                 <div className={`${styles.card} ${jobold.className}`}>
@@ -45,9 +45,10 @@ export default function Slider({reviews}: any) {
                                     height={400}
                                     alt={review.title}
                                     priority={true}
-                                    style={{ width: "300", height: "auto" }}
+                                    style={{ width: "auto", height: "50dvh" }}
                                     className={styles.poster}
                                 />
+                                <div className={styles.rate}>{review.rate}</div>
                             </Link>
                         </div>
                         <div className={styles.right}>

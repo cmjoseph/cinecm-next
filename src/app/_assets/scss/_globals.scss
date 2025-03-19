@@ -47,5 +47,9 @@ img {
         background-color: white;
         width: 60px;
         border-radius: 0;
+        height: 3px;
+        @media (max-width: 768px) {
+            width: 30px;
+        }
     }
 }

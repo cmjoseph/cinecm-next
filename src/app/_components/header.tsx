@@ -10,25 +10,32 @@ import { GrInstagram } from "react-icons/gr";
 import { FaSearch } from "react-icons/fa";
 import { VscMenu } from "react-icons/vsc";
 import { GrClose } from "react-icons/gr";
-import { useRef, useLayoutEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 
 export default function Header() {
     const pathname                  = usePathname();
     const [menuOpen, setMenuOpen]   = useState(false);
     const menuItemsRef              = useRef<HTMLDivElement[]>([]);
+
     const toggleClass = (e: any) => {
         if (menuOpen === false) {
             setMenuOpen(true);
-            e.target.className = 
-            gsap.fromTo(menuItemsRef.current, { y: -20, opacity: 0 }, { duration: 0.5, y: 0, opacity: 1, stagger: 0.2, ease: 'power3.out' });
+            gsap.fromTo(menuItemsRef.current, { y: -20, opacity: 0 }, { duration: 0.5, y: 0, opacity: 1, stagger: 0.1, ease: 'power3.out' });
         } else {
             setMenuOpen(false);
             gsap.fromTo(menuItemsRef.current, { y: 0, opacity: 1 }, { duration: 0.5, y: -20, opacity: 0, ease: 'power3.out' });
         }
     }
 
-    console.log(menuOpen);
+    useEffect(() => {
+        window.addEventListener('resize', ()=> {
+            if (window.innerWidth > 768) {
+                gsap.set(menuItemsRef.current, { clearProps: "all" });
+            }
+        });
+    });
+
     return (
         <header className={styles.header}>
             <div className={`${styles.nav} ${menuOpen ? styles.open : ''}`}>

@@ -20,9 +20,9 @@ export default function Coming({items}: any) {
             ease: 'power3.out',
             scrollTrigger: {
                 trigger: container.current,
-                start: "top 80%",
+                start: "top 100%",
                 end: "top 20%",
-                scrub: true
+                scrub: true,
             },
         });
         return () => {
@@ -38,7 +38,9 @@ export default function Coming({items}: any) {
                     <div className={styles.overlay}>
                         {item.title}
                     </div>
-                    <img src={item.poster} alt={item.title} />
+                    <div className={styles.mask}>
+                        <img src={item.poster} alt={item.title} />
+                    </div>
                 </div>
             ))}
         </div>
