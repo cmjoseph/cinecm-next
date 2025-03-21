@@ -14,88 +14,54 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
     const about     = useRef<HTMLDivElement>(null);
+    const content   = useRef<HTMLDivElement>(null);
     const portrait  = useRef<HTMLDivElement>(null);
     const bio       = useRef<HTMLDivElement>(null);
 
     useLayoutEffect(() => {
-        gsap.from(portrait.current, {
+        gsap.from(content.current, {
             scrollTrigger: {
                 trigger: about.current,
                 start: "top 80%",
-                end: "bottom 60%",
+                end: "bottom 20%",
                 scrub: true
             },
             opacity: 0,
-            x: -60,
-            duration: 1,
-            ease: 'power3.out',
-        });
-        gsap.from(bio.current, {
-            scrollTrigger: {
-                trigger: about.current,
-                start: "top 80%",
-                end: "bottom 60%",
-                scrub: true
-            },
-            opacity: 0,
-            x: 60,
-            duration: 1,
+            y: 60,
             ease: 'power3.out',
         });
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-            gsap.set([portrait.current, bio.current], { clearProps: "all" });
+            gsap.set(content.current, { clearProps: "all" });
         };
     }, []);
 
     return (
         <div className={styles.about} ref={about}>
-            <div className={styles.overlay}></div>
             <div className={styles.container}>
                 <h2>About Me</h2>
-                <div className={styles.wrapper}>
-                    <div className={styles.portrait} ref={portrait}>
-                        <img className={styles.picture} src="/portrait.jpg" alt="Claude-Marc Joseph" />
-                    </div>
-                    <div className={styles.bio} ref={bio}>
-                        <div className={styles.inner_bio}>
-                            <div className={styles.name}>
-                                Claude-Marc Joseph
-                                <span className={styles.role}>Movie critic & Senior Web developer</span>
-                            </div>
-                            <div className={styles.description}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus molestias unde accusantium illo ullam quaerat praesentium dolorum. Excepturi dolorum eaque, ex cumque aut nulla voluptatibus doloremque, obcaecati est voluptatum quaerat?</div>
-                            <div className={styles.informations}>
-                                <div className={styles.favorites}>
-                                    <h3>Favorites movies</h3>
-                                    <div className={styles.inner}>
-                                        <ul className={styles.movies}>
-                                            <li>Fight Club</li>
-                                            <li>Fight Club</li>
-                                            <li>Fight Club</li>
-                                            <li>Fight Club</li>
-                                        </ul>
-                                    </div>
+                <div className={styles.wrapper} ref={content}>
+                    <div className={styles.overlay}></div>
+                    <div className={styles.info}>
+                        <div className={styles.portrait}>
+                            <img className={styles.picture} src="/portrait.jpg" alt="Claude-Marc Joseph" />
+                        </div>
+                        <div className={styles.bio}>
+                            <div className={styles.inner_bio}>
+                                <div className={styles.name}>
+                                    Claude-Marc Joseph
+                                    <span className={styles.role}>Movie critic & Senior Web developer</span>
                                 </div>
-                                <div className={styles.technical}>
-                                    <h3>Technical skills</h3>
+                                <div className={styles.description}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus molestias unde accusantium illo ullam quaerat praesentium dolorum. Excepturi dolorum eaque, ex cumque aut nulla voluptatibus doloremque, obcaecati est voluptatum quaerat?</div>
+                                <div className={styles.socials}>
+                                    <h3>Socials</h3>
                                     <div className={styles.inner}>
-                                        <ul className={styles.skills}>
-                                            <li>Fight Club</li>
-                                            <li>Fight Club</li>
-                                            <li>Fight Club</li>
-                                            <li>Fight Club</li>
-                                        </ul>
+                                        <Link className="facebook" href="http://www.facebook.com" target="_blank"><FaFacebookSquare /></Link>
+                                        <Link className="x" href="http://www.x.com" target="_blank"><FaXTwitter /></Link>
+                                        <Link className="instagram" href="http://www.instagram.com" target="_blank"><GrInstagram /></Link>
+                                        <Link className={styles.github} href="https://github.com/cmjoseph" target="_blank"><FaSquareGithub /></Link>
+                                        <Link className={styles.email} href="mailto:cmarcjoseph@gmail.com" target="_blank"><AiOutlineMail /></Link>
                                     </div>
-                                </div>
-                            </div>
-                            <div className={styles.socials}>
-                                <h3>Socials</h3>
-                                <div className={styles.inner}>
-                                    <Link className="facebook" href="http://www.facebook.com" target="_blank"><FaFacebookSquare /></Link>
-                                    <Link className="x" href="http://www.x.com" target="_blank"><FaXTwitter /></Link>
-                                    <Link className="instagram" href="http://www.instagram.com" target="_blank"><GrInstagram /></Link>
-                                    <Link className={styles.github} href="https://github.com/cmjoseph" target="_blank"><FaSquareGithub /></Link>
-                                    <Link className={styles.email} href="mailto:cmarcjoseph@gmail.com" target="_blank"><AiOutlineMail /></Link>
                                 </div>
                             </div>
                         </div>

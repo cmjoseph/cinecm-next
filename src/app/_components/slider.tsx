@@ -45,7 +45,7 @@ export default function Slider({reviews}: any) {
                                     height={400}
                                     alt={review.title}
                                     priority={true}
-                                    style={{ width: "auto", height: "50dvh" }}
+                                    // style={{ width: "auto", height: "auto" }}
                                     className={styles.poster}
                                 />
                                 <div className={styles.rate}>{review.rate}</div>
@@ -75,23 +75,25 @@ export default function Slider({reviews}: any) {
     }, []);
 
     return (
-        <Swiper  
-            key={virtualSlidesEnabled ? 'virtual' : 'non-virtual'}
-            spaceBetween={0}
-            slidesPerView={1}
-            centeredSlides={true}
-            effect={'fade'}
-            autoplay={{
-                delay: 5000,
-                disableOnInteraction: false,
-            }}
-            // onSwiper={(swiper) => console.log(swiper)}
-            pagination={{ clickable: true }}
-            onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-            modules={[EffectFade, Pagination, Autoplay]}
-            className={styles.sliderhome}
-            >
-            {slides}
-        </Swiper>
+        <div className={styles.frame}>
+            <Swiper  
+                key={virtualSlidesEnabled ? 'virtual' : 'non-virtual'}
+                spaceBetween={0}
+                slidesPerView={1}
+                centeredSlides={true}
+                effect={'fade'}
+                autoplay={{
+                    delay: 5000,
+                    disableOnInteraction: false,
+                }}
+                // onSwiper={(swiper) => console.log(swiper)}
+                pagination={{ clickable: true }}
+                onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+                modules={[EffectFade, Pagination, Autoplay]}
+                className={styles.sliderhome}
+                >
+                {slides}
+            </Swiper>
+        </div>
     );
 }

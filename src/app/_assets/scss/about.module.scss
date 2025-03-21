@@ -1,147 +1,222 @@
 .about {
     position: relative;
-    background-color: black;
-    background-image: url('/images/background/laptop.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    .overlay {
-        position: absolute;
-        background-color: black;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        opacity: 0.7;
+    width: 100vw;
+    height: 100dvh;
+    @media (max-width: 768px) {
+        height: auto;
+    }
+    h2 {
+        font-size: 52px;
+        text-transform: uppercase;
+        margin: 2rem 0;
+        color: white;
+        font-weight: bold;
+        @media (max-width: 1024px) {
+            font-size: 32px;
+        }
+        @media (max-width: 768px) {
+            font-size: 24px;
+        }
     }
     .container {
         position: relative;
-        padding: 5em 10em;
         display: flex;
-        width: 100vw;
+        width: 100%;
+        height: 100%;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         z-index: 100;
-        h2 {
-            font-size: 52px;
-            text-transform: uppercase;
-            margin-bottom: 1.5em;
-            color: white;
-            font-weight: bold;
-        }
         .wrapper {
+            position: relative;
             display: flex;
-            width: 100%;
+            align-items: center;
+            justify-content: center;
+            width: 90%;
+            height: 80%;
             font-size: 24px;
             margin-bottom: 1em;
             line-height: 1.2;
             color: white;
             font-weight: bold;
-            padding: 0 0 2em;
-            .portrait {
-                width: auto;
-                display: flex;
-                align-items: flex-start;
-                justify-content: flex-start;
-                img.picture {
-                    width: 100%;
-                    max-width: 600px;
-                }
+            padding: 5rem;
+            background-image: url('/images/background/laptop.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            border-radius: 15px;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+            @media (max-width: 1024px) {
+                padding: 2rem;
             }
-            .bio {
+            .overlay {
+                position: absolute;
                 width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                opacity: 0.5;
+                z-index: 100;
+                background-color: black;
+                border-radius: 15px;
+            }
+            .info {
+                position: relative;
+                z-index: 200;
                 display: flex;
-                justify-content: flex-start;
-                padding-left: 2em;
-                .inner_bio {
-                    max-width: 100%;
-                    .name {
-                        font-size: 32px;
-                        text-transform: uppercase;
-                        margin-bottom: 1em;
-                        span.role {
-                            font-size: 18px;
-                            display: block;
-                        }
+                align-items: center;
+                margin: 2rem;
+                @media (max-width: 768px) {
+                    flex-direction: column;
+                    margin: 0;
+                }
+                .portrait {
+                    position: relative;
+                    width: auto;
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    border-radius: 50%;
+                    width: 400px;
+                    height: 400px;
+                    overflow: hidden;
+                    @media (max-width: 1200px) {
+                       width: 300px;
+                       height: 300px;
                     }
-                    .description {
-                        margin-bottom: 1em;
-                        line-height: 1.2;
+                    @media (max-width: 768px) {
+                        margin-bottom: 2rem;
+                        width: 200px;
+                        height: 200px;
                     }
-                    .informations {
-                        display: flex;
+                    img.picture {
+                        position: relative;
+                        top: -30px;
+                        left: 0;
                         width: 100%;
-                        .favorites {
-                            margin-bottom: 1em;
-                            margin-right: 2em;
-                            h3 {
-                                text-transform: uppercase;
-                                font-size: 18px;
-                            }
-                            .inner {
-                                display: flex;
-                                padding-top: 1em;
-                                ul {
-                                    position: relative;
-                                    li {
-                                        text-transform: uppercase;
-                                        + li {
-                                            margin-top: 1em;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        .technical {
-                            margin-bottom: 1em;
-                            h3 {
-                                text-transform: uppercase;
-                                font-size: 18px;
-                            }
-                            .inner {
-                                display: flex;
-                                padding-top: 1em;
-                                ul {
-                                    position: relative;
-                                    li {
-                                        text-transform: uppercase;
-                                        + li {
-                                            margin-top: 1em;
-                                        }
-                                    }
-                                }
-                            }
+                        max-width: 600px;
+                        @media (max-width: 768px) {
+                            max-width: 100%;
+                            height: auto;
                         }
                     }
-                    .socials {
-                        h3 {
+                }
+                .bio {
+                    width: calc(100% - 400px);
+                    display: flex;
+                    justify-content: flex-start;
+                    padding-left: 4rem;
+                    @media (max-width: 1200px) {
+                        padding-left: 2rem;
+                        width: calc(100% - 300px);
+                    }
+                    @media (max-width: 768px) {
+                        padding-left: 0;
+                        width: 100%;
+                    }
+                    .inner_bio {
+                        max-width: 100%;
+                        .name {
+                            font-size: 32px;
                             text-transform: uppercase;
-                            font-size: 18px;
+                            margin-bottom: 1rem;
+                            display: block;
+                            @media (max-width: 768px) {
+                                font-size: 18px;
+                            }
+                            span.role {
+                                margin-top: 1rem;
+                                font-size: 18px;
+                                display: block;
+                                @media (max-width: 768px) {
+                                    font-size: 16px;
+                                }
+                            }
                         }
-                        .inner {
+                        .description {
+                            margin-bottom: 1em;
+                            line-height: 1.2;
+                            @media (max-width: 768px) {
+                                font-size: 16px;
+                            }
+                        }
+                        .informations {
                             display: flex;
-                            padding-top: 1em;
-                            a {
+                            width: 100%;
+                            .favorites {
+                                margin-bottom: 1em;
+                                margin-right: 2em;
+                                h3 {
+                                    text-transform: uppercase;
+                                    font-size: 18px;
+                                }
+                                .inner {
+                                    display: flex;
+                                    padding-top: 1em;
+                                    ul {
+                                        position: relative;
+                                        li {
+                                            text-transform: uppercase;
+                                            + li {
+                                                margin-top: 1em;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .technical {
+                                margin-bottom: 1em;
+                                h3 {
+                                    text-transform: uppercase;
+                                    font-size: 18px;
+                                }
+                                .inner {
+                                    display: flex;
+                                    padding-top: 1em;
+                                    ul {
+                                        position: relative;
+                                        li {
+                                            text-transform: uppercase;
+                                            + li {
+                                                margin-top: 1em;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .socials {
+                            h3 {
+                                text-transform: uppercase;
+                                font-size: 18px;
+                                @media (max-width: 768px) {
+                                    font-size: 16px;
+                                }
+                            }
+                            .inner {
                                 display: flex;
-                                align-items: center;
-                                opacity: 1;
-                                transition: opacity 0.35s ease;
-                                &.github {
-                                    transform: scale(1.1);
-                                }
-                                &.email {
-                                    transform: scale(1.3);
-                                }
-                                svg {
-                                    width: 24px;
-                                    height: 24px;
-                                }
-                                &:hover {
-                                    opacity: 0.5;
-                                }
-                                + a {
-                                    margin-left: 1em;
+                                padding-top: 1em;
+                                a {
+                                    display: flex;
+                                    align-items: center;
+                                    opacity: 1;
+                                    transition: opacity 0.35s ease;
+                                    &.github {
+                                        transform: scale(1.1);
+                                    }
+                                    &.email {
+                                        transform: scale(1.3);
+                                    }
+                                    svg {
+                                        width: 24px;
+                                        height: 24px;
+                                    }
+                                    &:hover {
+                                        opacity: 0.5;
+                                    }
+                                    + a {
+                                        margin-left: 1em;
+                                    }
                                 }
                             }
                         }
