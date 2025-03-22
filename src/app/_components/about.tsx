@@ -19,40 +19,40 @@ export default function About() {
     const bio       = useRef<HTMLDivElement>(null);
 
     useLayoutEffect(() => {
-        gsap.from(content.current, {
+        const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: about.current,
-                start: "top 80%",
-                end: "bottom 20%",
+                end: "bottom 100%",
                 scrub: true
             },
-            opacity: 0,
-            y: 60,
-            ease: 'power3.out',
         });
+        tl.from(portrait.current, { opacity: 0, x: -30, ease: 'power3.out', delay: 1  });
+        tl.from(bio.current, { opacity: 0, x: 30, ease: 'power3.out', delay: 0.5 });
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-            gsap.set(content.current, { clearProps: "all" });
+            gsap.set([portrait.current, bio.current], { clearProps: "all" });
         };
     }, []);
 
     return (
-        <div className={styles.about} ref={about}>
-            <div className={styles.container}>
+        <div className={styles.about}>
+            <div className={styles.container} ref={about}>
                 <h2>About Me</h2>
-                <div className={styles.wrapper} ref={content}>
+                <div className={styles.wrapper}>
                     <div className={styles.overlay}></div>
                     <div className={styles.info}>
-                        <div className={styles.portrait}>
-                            <img className={styles.picture} src="/portrait.jpg" alt="Claude-Marc Joseph" />
+                        <div className={styles.info_inner} ref={portrait}>
+                            <div className={styles.name}>Claude-Marc Joseph</div>
+                            <div className={styles.role}>Movie critic & Senior Web developer</div>
+                            <div className={styles.portrait}>
+                                <img className={styles.picture} src="/portrait.jpg" alt="Claude-Marc Joseph" />
+                            </div>
                         </div>
-                        <div className={styles.bio}>
+                        <div className={styles.bio} ref={bio}>
                             <div className={styles.inner_bio}>
-                                <div className={styles.name}>
-                                    Claude-Marc Joseph
-                                    <span className={styles.role}>Movie critic & Senior Web developer</span>
+                                <div className={styles.description}>
+                                Claude-Marc Joseph is a dedicated senior front-end developer with a degree in Computer Science, specializing in creating visually appealing and user-friendly web applications. His programming skills are enhanced by a strong design sensibility, allowing him to craft seamless user interfaces. Outside of coding, he is a passionate cinephile, exploring and analyzing films, which inspires his creative approach to web development. Claude-Marc enjoys attending film festivals and tech meetups to connect with others who share his interests, and he remains committed to continuous learning, keeping abreast of trends in both the technology and film industries to merge his passions innovatively.
                                 </div>
-                                <div className={styles.description}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus molestias unde accusantium illo ullam quaerat praesentium dolorum. Excepturi dolorum eaque, ex cumque aut nulla voluptatibus doloremque, obcaecati est voluptatum quaerat?</div>
                                 <div className={styles.socials}>
                                     <h3>Socials</h3>
                                     <div className={styles.inner}>

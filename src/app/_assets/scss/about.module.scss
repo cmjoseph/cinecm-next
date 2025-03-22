@@ -1,7 +1,7 @@
 .about {
     position: relative;
     width: 100vw;
-    height: 100dvh;
+    height: auto;
     @media (max-width: 768px) {
         height: auto;
     }
@@ -64,40 +64,68 @@
                 position: relative;
                 z-index: 200;
                 display: flex;
-                align-items: center;
                 margin: 2rem;
                 @media (max-width: 768px) {
                     flex-direction: column;
                     margin: 0;
                 }
-                .portrait {
-                    position: relative;
-                    width: auto;
+                &_inner {
                     display: flex;
-                    align-items: flex-start;
-                    justify-content: flex-start;
-                    border-radius: 50%;
-                    width: 400px;
-                    height: 400px;
-                    overflow: hidden;
-                    @media (max-width: 1200px) {
-                       width: 300px;
-                       height: 300px;
-                    }
+                    flex-direction: column;
                     @media (max-width: 768px) {
-                        margin-bottom: 2rem;
-                        width: 200px;
-                        height: 200px;
+                        align-items: center;
                     }
-                    img.picture {
-                        position: relative;
-                        top: -30px;
-                        left: 0;
-                        width: 100%;
-                        max-width: 600px;
+                    .name {
+                        font-size: 32px;
+                        text-transform: uppercase;
+                        display: block;
                         @media (max-width: 768px) {
-                            max-width: 100%;
-                            height: auto;
+                            font-size: 18px;
+                            text-align: center;
+                        }
+                    }
+                    .role {
+                        margin-top: 1rem;
+                        font-size: 18px;
+                        display: block;
+                        line-height: 1.2;
+                        text-transform: uppercase;
+                        @media (max-width: 768px) {
+                            font-size: 16px;
+                            text-align: center;
+                        }
+                    }
+                    .portrait {
+                        position: relative;
+                        width: auto;
+                        display: flex;
+                        align-items: flex-start;
+                        justify-content: flex-start;
+                        border-radius: 15px;
+                        margin: 2rem 0;
+                        width: 400px;
+                        height: 400px;
+                        overflow: hidden;
+                        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+                        @media (max-width: 1200px) {
+                           width: 300px;
+                           height: 300px;
+                        }
+                        @media (max-width: 768px) {
+                            margin-bottom: 2rem;
+                            width: 200px;
+                            height: 200px;
+                        }
+                        img.picture {
+                            position: relative;
+                            top: -30px;
+                            left: 0;
+                            width: 100%;
+                            max-width: 600px;
+                            @media (max-width: 768px) {
+                                max-width: 100%;
+                                height: auto;
+                            }
                         }
                     }
                 }
@@ -116,26 +144,10 @@
                     }
                     .inner_bio {
                         max-width: 100%;
-                        .name {
-                            font-size: 32px;
-                            text-transform: uppercase;
-                            margin-bottom: 1rem;
-                            display: block;
-                            @media (max-width: 768px) {
-                                font-size: 18px;
-                            }
-                            span.role {
-                                margin-top: 1rem;
-                                font-size: 18px;
-                                display: block;
-                                @media (max-width: 768px) {
-                                    font-size: 16px;
-                                }
-                            }
-                        }
                         .description {
-                            margin-bottom: 1em;
-                            line-height: 1.2;
+                            margin-bottom: 2rem;
+                            line-height: 1.4;
+                            font-size: 24px;
                             @media (max-width: 768px) {
                                 font-size: 16px;
                             }
@@ -152,33 +164,33 @@
                                 }
                                 .inner {
                                     display: flex;
-                                    padding-top: 1em;
+                                    padding-top: 1rem;
                                     ul {
                                         position: relative;
                                         li {
                                             text-transform: uppercase;
                                             + li {
-                                                margin-top: 1em;
+                                                margin-top: 1rem;
                                             }
                                         }
                                     }
                                 }
                             }
                             .technical {
-                                margin-bottom: 1em;
+                                margin-bottom: 1rem;
                                 h3 {
                                     text-transform: uppercase;
                                     font-size: 18px;
                                 }
                                 .inner {
                                     display: flex;
-                                    padding-top: 1em;
+                                    padding-top: 1rem;
                                     ul {
                                         position: relative;
                                         li {
                                             text-transform: uppercase;
                                             + li {
-                                                margin-top: 1em;
+                                                margin-top: 1rem;
                                             }
                                         }
                                     }
@@ -191,11 +203,15 @@
                                 font-size: 18px;
                                 @media (max-width: 768px) {
                                     font-size: 16px;
+                                    text-align: center;
                                 }
                             }
                             .inner {
                                 display: flex;
-                                padding-top: 1em;
+                                padding-top: 1rem;
+                                @media (max-width: 768px) {
+                                   justify-content: center;
+                                }
                                 a {
                                     display: flex;
                                     align-items: center;
@@ -215,7 +231,7 @@
                                         opacity: 0.5;
                                     }
                                     + a {
-                                        margin-left: 1em;
+                                        margin-left: 1rem;
                                     }
                                 }
                             }

@@ -40,8 +40,7 @@ export default function Verdict({data}: any ) {
        
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-            gsap.set(titleRef.current, { clearProps: "all" });
-            gsap.set(viewRef.current, { clearProps: "all" });
+            gsap.set([titleRef.current, viewRef.current], { clearProps: "all" });
         };
 	}, []);
 

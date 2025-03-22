@@ -5,6 +5,7 @@
     flex-wrap: wrap;
     @media (max-width: 1024px) {
         margin: 0 -1em;
+        justify-content: center;
     }
     .grid_item {
         position: relative;

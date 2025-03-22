@@ -6,20 +6,72 @@
     color: white;
     width: 100%;
     height: auto;
-    padding: 2em 10em;
+    padding: 2rem 5rem;
     display: flex;
     align-items: center;
     border-top: 1px solid grey;
+    @media (max-width: 1024px) {
+       padding: 2rem;
+    }
     .nav {
         display: flex;
         width: 100%;
         font-size: 24px;
         justify-content: space-between;
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
         &__logo {
-            margin-right: 2em;
+            width: 25%;
+            display: flex;
+            align-items: center;
+            @media (max-width: 768px) {
+                width: 100%;
+                justify-content: center;
+            }
+            .logo{
+                position: relative;
+                display: flex;
+                align-items: center;
+                &_name {
+                    position: relative;
+                    top: 5px;
+                    letter-spacing: -2px;
+                    color: white;
+                    font-weight: bold;
+                    font-size: 35px;
+                    @media (max-width: 1024px) {
+                        font-size: 25px;
+                        top: 4px;
+                    }
+                    @media (max-width: 768px) {
+                        font-size: 20px;
+                        top: 3px;
+                    }
+                }
+                &_svg {
+                    margin-right: 10px;
+                    width: 35px;
+                    height: 35px;
+                    @media (max-width: 1024px) {
+                        width: 20px;
+                        height: 20px;
+                    }
+                    @media (max-width: 768px) {
+                        width: 15px;
+                        height: 15px;
+                    }
+                }
+            }
         }
         &__menu {
             display: flex;
+            width: 50%;
+            justify-content: center;
+            @media (max-width: 768px) {
+                width: 100%;
+                margin: 2rem 0;
+            }
             &_left {
                display: flex;
                flex-direction: column;
@@ -34,7 +86,11 @@
                 transition: opacity 0.35s ease;
                 text-transform: uppercase;
                 font-size: 18px;
+                font-weight: bold;
                 opacity: 1;
+                @media (max-width: 1024px) {
+                    font-size: 16px;
+                }
                 &:hover, &.active {
                    opacity: 0.5;
                 }
@@ -46,9 +102,18 @@
         &__socials {
             display: flex;
             align-items: center;
+            justify-content: flex-end;
+            width: 25%;
+            @media (max-width: 768px) {
+                width: 100%;
+                justify-content: center;
+            }
             > a {
                 + a {
-                    margin-left: 2em;
+                    margin-left: 2rem;
+                    @media (max-width: 1024px) {
+                        margin-left: 15px;
+                    }
                 }
             }
         }
