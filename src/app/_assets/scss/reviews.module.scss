@@ -1,12 +1,18 @@
 .reviews {
     position: relative;
     .container {
-        padding: 8em 10em 5em;
+        padding: 8rem 5rem;
         display: flex;
         width: 100vw;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        @media (max-width: 1440px) {
+            padding: 8rem 4rem;
+        }
+        @media (max-width: 1024px) {
+            padding: 6rem 0 2rem;
+        }
         .top {
             display: flex;
             justify-content: center;
@@ -15,9 +21,15 @@
             h1 {
                 font-size: 52px;
                 text-transform: uppercase;
-                margin-bottom: 1em;
+                margin-bottom: 1rem;
                 color: white;
                 font-weight: bold;
+                @media (max-width: 1440px) {
+                    font-size: 32px;
+                }
+                @media (max-width: 768px) {
+                    font-size: 24px;
+                }
             }
             button {
                 position: fixed;
@@ -37,6 +49,9 @@
                 font-weight: bold;
                 cursor: pointer;
                 transition: background-color 0.35s ease;
+                @media (max-width: 768px) {
+                    top: 80px;
+                }
                 &:hover {
                     background-color: white;
                     color: black;
@@ -47,33 +62,45 @@
     .panel {
         position: fixed;
         top: 70px;
-        left: -18vw;
-        width: 18vw;
+        left: -100%;
+        width: 24vw;
         height: 100vh;
         z-index: 1000;
         backdrop-filter: blur(4px);
         border-right: 1px solid grey;
         transition: left 0.35s ease-in-out 0.7s;
+        @media (max-width: 1440px) {
+            width: 30%;
+        }
+        @media (max-width: 1024px) {
+            width: 40%;
+        }
+        @media (max-width: 768px) {
+            left: inherit;
+            width: 100%;
+            overflow: hidden;
+            border-right: none;
+            top: 53px;
+            max-height: 0;
+            transition: max-height 0.35s ease-in-out;
+        }
         &.open {
             left: 0;
             transition: left 0.35s ease-in-out;
-        }
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            svg {
-                fill: white;
-            }
+            max-height: 1000px;
+            overflow-y: auto;
         }
         .wrapper {
-            padding: 2em;
+            padding: 2rem;
             h2 {
                 color: white;
                 text-transform: uppercase;
-                margin-bottom: 2em;
+                margin-bottom: 2rem;
                 font-size: 32px;
+                font-weight: bold;
+                @media (max-width: 768px) {
+                    font-size: 24px;
+                }
             }
         }
     }

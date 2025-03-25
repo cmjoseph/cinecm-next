@@ -29,6 +29,7 @@ export default function Header() {
     }
 
     useEffect(() => {
+        if (typeof window !== 'undefined')
         window.addEventListener('resize', ()=> {
             if (window.innerWidth > 768) {
                 gsap.set(menuItemsRef.current, { clearProps: "all" });

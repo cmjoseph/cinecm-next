@@ -1,7 +1,7 @@
 .container {
-    padding: 5rem 10rem 5rem;
+    padding: 5rem 5rem 5rem;
     width: 100vw;
-    background-color: black;
+    background-color: rgb(39, 39, 39);
     @media (max-width: 1440px) {
         top: 3px;
         font-size: 32px;
@@ -9,6 +9,9 @@
     }
     @media (max-width: 1024px) {
         padding: 4rem 2rem;
+    }
+    @media (max-width: 768px) {
+        padding: 4rem 1rem;
     }
     h2 {
         font-size: 42px;
@@ -20,15 +23,24 @@
         @media (max-width: 1024px) {
             font-size: 32px;
         }
+        @media (max-width: 768px) {
+            font-size: 24px;
+        }
     }
     .wrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        background-color: rgb(20, 20, 20);
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+        border-radius: 15px;
         .overview {
             position: relative;
             border: 1px solid grey;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            overflow: hidden;
             border-bottom: none;
             padding: 4rem;
             text-align: center;
@@ -37,16 +49,12 @@
             @media (max-width: 1024px) {
                 padding: 2rem;
             }
-            h3 {
-                color: white;
-                text-transform: uppercase;
-                font-size: 24px;
-                font-weight: bold;
-                margin-bottom: 30px;
-            }
             p {
                 color: white;
                 font-size: 24px;
+                @media (max-width: 1024px) {
+                    font-size: 20px;
+                }
                 @media (max-width: 768px) {
                     font-size: 16px;
                 }
@@ -58,6 +66,8 @@
             flex: 0 0 1;
             border: 1px solid grey;
             background-color: transparent;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
             @media (max-width: 540px) {
                flex-direction: column;
             }
@@ -68,6 +78,9 @@
                 font-size: 92px;
                 text-transform: uppercase;
                 margin-bottom: 30px;
+                @media (max-width: 1024px) {
+                    font-size: 52px;
+                }
                 @media (max-width: 768px) {
                     font-size: 42px;
                 }
@@ -81,6 +94,9 @@
                 li {
                     margin-bottom: 15px;
                     line-height: 1.2;
+                    @media (max-width: 1024px) {
+                        font-size: 20px;
+                    }
                     @media (max-width: 768px) {
                         font-size: 16px;
                     }

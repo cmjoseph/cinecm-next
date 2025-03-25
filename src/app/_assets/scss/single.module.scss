@@ -1,23 +1,38 @@
 .single {
     position: relative;
+    background-color: rgb(39, 39, 39);
     .hero {
         position: relative;
         width: 100%;
-        height: 100vh;
+        height: calc(100dvh + 70px);
         overflow: hidden;
-        border: 1px solid grey;
         @media (max-width: 768px) {
             min-height: 100vh;
             overflow: visible;
             height: auto;
-            padding: 0 2rem;
+            padding: 0 1rem;
         }
         &_under {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 50%;
+            left: 50%;
+            width: 90%;
+            height: 75%;
+            transform: translate(-50%, -50%);
+            border-radius: 15px;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+            overflow: hidden;
+            @media (max-width: 1024px) {
+                width: 95%;
+            }
+            @media (max-width: 768px) {
+               top: 0;
+               left: 0;
+               width: 100%;
+               height: 100%;
+               transform: none;
+               border-radius: 0;
+            }
             .overlay {
                 position: absolute;
                 top: 0;
@@ -27,6 +42,9 @@
                 height: 100%;
                 z-index: 500;
                 opacity: 0.6;
+                @media (max-width: 768px) {
+                    opacity: 0.8;
+                }
             }
             img {
                 position: relative;
@@ -57,7 +75,7 @@
             position: absolute;
             width: 100%;
             height: calc(100% - 70px);
-            top: 70px;
+            top: 35px;
             left: 0;
             z-index: 500;
             display: flex;
@@ -67,13 +85,13 @@
                 position: relative;
                 height: auto;
                 top: 0;
-                padding: 100px 0 70px;
+                padding: 82px 0 30px;
             }
             .hero_content {
                 display: flex;
-                padding: 0 10em;
-                @media (max-width: 1024px) {
-                    padding: 0 4rem;
+                padding: 0 10rem;
+                @media (max-width: 1200px) {
+                    padding: 0 6rem;
                 }
                 @media (max-width: 768px) {
                    flex-direction: column;
@@ -86,9 +104,7 @@
                     width: 350px;
                     @media (max-width: 1440px) {
                         width: 350px;
-                    }
-                    @media (max-width: 1024px) {
-                       margin-right: 1rem;
+                        margin-right: 1rem;
                     }
                     @media (max-width: 768px) {
                         width: 100%;
@@ -110,6 +126,7 @@
                     margin-left: 2rem;
                     @media (max-width: 1440px) {
                         width: 100%;
+                        margin-left: 1rem;
                     }
                     @media (max-width: 768px) {
                         width: 100%;
@@ -125,6 +142,9 @@
                         @media (max-width: 1440px) {
                             font-size: 32px;
                         }
+                        @media (max-width: 1024px) {
+                            font-size: 24px;
+                        }
                         @media (max-width: 768px) {
                             margin: 30px 0;
                             font-size: 24px;
@@ -137,14 +157,14 @@
                         margin-bottom: 30px;
                     }
                     .description {
-                        font-size: 24px;
+                        font-size: 20px;
                         color: white;
                         margin-bottom: 30px;
                         line-height: 1.2;
                         @media (max-width: 1440px) {
                             font-size: 20px;
                         }
-                        @media (max-width: 768px) {
+                        @media (max-width: 1024px) {
                             font-size: 16px;
                         }
                     }
@@ -157,7 +177,7 @@
                             backdrop-filter: blur(3px);
                             background-color: transparent;
                             border-bottom: 1px solid grey;
-                            font-size: 24px;
+                            font-size: 20px;
                             @media (max-width: 1440px) {
                                 font-size: 20px;
                             }
@@ -168,13 +188,13 @@
                             }
                             span.prefix {
                                 display: table-cell;
-                                font-size: 24px;
-                                padding: 15px;
+                                font-size: 20px;
+                                padding: 10px 15px;
                                 backdrop-filter: blur(3px);
                                 background-color: transparent;
                                 color: white;
                                 border-right: 1px solid grey;
-                                width: 160px;
+                                width: 120px;
                                 vertical-align: middle;
                                 font-weight: bold;
                                 background-color: rgb(255, 255, 255, 0.8);
@@ -182,8 +202,10 @@
                                 @media (max-width: 1440px) {
                                     font-size: 20px;
                                 }
-                                @media (max-width: 768px) {
+                                @media (max-width: 1024px) {
                                     font-size: 16px;
+                                }
+                                @media (max-width: 768px) {
                                     width: 100%;
                                     border-bottom: 1px solid grey;
                                     text-align: center;
@@ -192,11 +214,13 @@
                             }
                             span.data {
                                 display: table-cell;
-                                padding: 15px;
+                                padding: 10px 15px;
                                 line-height: 1.4;
                                 width: calc(100% - 160px);
-                                @media (max-width: 768px) {
+                                @media (max-width: 1024px) {
                                     font-size: 16px;
+                                }
+                                @media (max-width: 768px) {
                                     text-align: center;
                                     width: 100%;
                                 }

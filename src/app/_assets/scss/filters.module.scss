@@ -11,6 +11,10 @@
                 color: white;
                 text-transform: uppercase;
                 margin-left: 15px;
+                font-weight: bold;
+                @media (max-width: 768px) {
+                    font-size: 14px;
+                }
             }
             input.radio {
                 width: 20px;
@@ -20,6 +24,9 @@
                 color: black;
                 text-transform: uppercase;
                 font-weight: bold;
+                @media (max-width: 768px) {
+                    font-size: 14px;
+                }
             }
             + .group {
                 margin-left: 15px;
@@ -34,6 +41,10 @@
                 color: white;
                 text-transform: uppercase;
                 margin-bottom: 15px;
+                font-weight: bold;
+                @media (max-width: 768px) {
+                    font-size: 12px;
+                }
             }
             input.text {
                 width: 100%;
@@ -45,6 +56,12 @@
                 color: black;
                 text-transform: uppercase;
                 font-weight: bold;
+                @media (max-width: 768px) {
+                    font-size: 12px;
+                }
+                &::placeholder {
+                    font-weight: bold;
+                }
             }
         }
     }
@@ -56,6 +73,10 @@
                 color: white;
                 text-transform: uppercase;
                 margin-bottom: 15px;
+                font-weight: bold;
+                @media (max-width: 768px) {
+                    font-size: 12px;
+                }
             }
             select {
                 width: 100%;
@@ -71,6 +92,9 @@
                 text-transform: uppercase;
                 background-image: none;
                 font-weight: bold;
+                @media (max-width: 768px) {
+                    font-size: 12px;
+                }
                 &::-ms-expand {
                     display: none;
                 }
@@ -82,7 +106,14 @@
                 height: 40px;
                 line-height: 3;
                 background: white;
+                font-weight: bold;
                 overflow: hidden;
+                option {
+                    font-weight: bold;
+                    @media (max-width: 768px) {
+                        font-size: 14px;
+                    }
+                }
                 &::after {
                     content: '\25E3';
                     position: absolute;
@@ -130,6 +161,7 @@
             text-transform: uppercase;
             font-size: 14px;
             border: 1px solid grey;
+            border-radius: 10px;
             padding: 10px 20px;
             transition: background-color 0.35s ease;
             cursor: pointer;

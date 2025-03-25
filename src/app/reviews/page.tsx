@@ -27,22 +27,46 @@ export default function Page() {
 
     const container         = useRef<HTMLDivElement>(null);
     const panel             = useRef<HTMLDivElement>(null);
+    const body              = useRef<HTMLDivElement>(null);
     const reviews           = useRef<HTMLDivElement[]>([]);
     const selectActorRef    = useRef<HTMLSelectElement>(null);
     const selectDirectorRef = useRef<HTMLSelectElement>(null);
     const selectYearRef     = useRef<HTMLSelectElement>(null);
     const selectGenreRef    = useRef<HTMLSelectElement>(null);
-
+    
     const toggleClass = (e: any, className: string) => {
-        e.parentElement.classList.toggle(className);
+        const selects = [...document.querySelectorAll<HTMLSelectElement>('select')];
+        if (e.parentElement.classList.contains(className)) {
+            e.parentElement.classList.remove(className);
+        } else {
+            selects.map((select: any) => select.parentElement.classList.remove(filters.active));
+            e.parentElement.classList.add(className);
+        }
+    }
+    
+    const closeSelect = (event: any) => {
+        const selects = [...document.querySelectorAll<HTMLSelectElement>('select')];
+        if (event.target.nodeName !== 'SELECT') {
+            selects.map((select: any) => select.parentElement.classList.remove(filters.active))
+        }
     }
 
     const handleToggle = () => {
         setIsPanelOpen(!isPanelOpen);
         if (!isPanelOpen) {
-            gsap.fromTo(panel.current, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out', delay: 0.5 });
+            if (window.innerWidth > 768) {
+                gsap.fromTo(panel.current, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out', delay: 0.5 });
+            } else {
+                document.body.classList.add('js-block');
+                gsap.fromTo(panel.current, { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out', delay: 0.5 });
+            }
         } else {
-            gsap.fromTo(panel.current, { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out', delay: 0.35 }, { opacity: 0, x: -30, delay: 0.35});
+            if (window.innerWidth > 768) {
+                gsap.fromTo(panel.current, { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out', delay: 0.35 }, { opacity: 0, x: -30, delay: 0.35});
+            } else {
+                document.body.classList.remove('js-block');
+                gsap.fromTo(panel.current, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out', delay: 0.35 }, { opacity: 0, y: 0, delay: 0.35});
+            }
         }
     };
 
@@ -94,35 +118,7 @@ export default function Page() {
     }, []);
 
     return (
-        <div className={`${styles.reviews} ${styles.page}`}>
-            <div className={styles.container}>
-                <div className={styles.top}>
-                    <h1>Reviews</h1>
-                    {/* Trigger filters */}
-                    <button onClick={handleToggle} className={`${isPanelOpen ? styles.open : ''}`}>
-                        {isPanelOpen ? <RiCloseLargeFill /> : <AiOutlineMenuFold />}
-                    </button>
-                </div>
-                <div className={partial.grid} ref={container}>
-                {/* All Movies */}
-                {filteredMovies.length > 0 ? (
-                    filteredMovies.map((movie, index) => (
-                        <Link key={index} href={`/reviews/${toSlug(movie.title)}`} className={`${partial.grid_item} ${partial.grid_item_reviews}`} ref={(el: any) => { if (reviews.current) {(reviews.current[index] = el)} }}>
-                            <div className={partial.poster}>
-                                <div className={partial.overlay}>
-                                    <h3>{movie.title}</h3>
-                                </div>
-                                <img src={movie.poster} alt={movie.title} />
-                                <div className={partial.rate}>{movie.rate}</div>
-                            </div>
-                            <h4>{movie.title}</h4>
-                        </Link>
-                    ))
-                ) : (
-                    <div className={partial.empty}>No movies found.</div>
-                )}
-                </div>
-            </div>
+        <div className={`${styles.reviews} ${styles.page}`} onClick={(e) => closeSelect(e)}>
             <div className={`${styles.panel} ${isPanelOpen ? styles.open : ''}`}>
                 <div className={styles.wrapper} ref={panel}>
                     <h2>Sort by</h2>
@@ -174,7 +170,7 @@ export default function Page() {
                             <div className={filters.group}>
                                 <label>Search titles</label>
                                 <input
-                                    className={filters.text}
+                                    className={`${filters.text} ${jobold.className}`}
                                     placeholder="Search titles..."
                                     value={searchTerm}
                                     onChange={(e) => setSearchTerm(e.target.value)}
@@ -243,6 +239,34 @@ export default function Page() {
                             </button>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div className={styles.container}>
+                <div className={styles.top}>
+                    <h1>Reviews</h1>
+                    {/* Trigger filters */}
+                    <button onClick={handleToggle} className={`${isPanelOpen ? styles.open : styles.close}`}>
+                        {isPanelOpen ? <RiCloseLargeFill /> : <AiOutlineMenuFold />}
+                    </button>
+                </div>
+                <div className={partial.grid} ref={container}>
+                {/* All Movies */}
+                {filteredMovies.length > 0 ? (
+                    filteredMovies.map((movie, index) => (
+                        <Link key={index} href={`/reviews/${toSlug(movie.title)}`} className={`${partial.grid_item} ${partial.grid_item_reviews}`} ref={(el: any) => { if (reviews.current) {(reviews.current[index] = el)} }}>
+                            <div className={partial.poster}>
+                                <div className={partial.overlay}>
+                                    <h3>{movie.title}</h3>
+                                </div>
+                                <img src={movie.poster} alt={movie.title} />
+                                <div className={partial.rate}>{movie.rate}</div>
+                            </div>
+                            <h4>{movie.title}</h4>
+                        </Link>
+                    ))
+                ) : (
+                    <div className={partial.empty}>No movies found.</div>
+                )}
                 </div>
             </div>
         </div>

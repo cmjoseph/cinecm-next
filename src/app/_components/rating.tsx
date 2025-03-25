@@ -5,10 +5,14 @@ import { gsap } from "gsap";
 
 export default function Rating({rate}: any) {
   	const rateRef = useRef<HTMLDivElement>(null);
-
+	  
 	useEffect(() => {
 		if (rateRef.current) {
-			gsap.fromTo(rateRef.current, { x: -300 }, { duration: 1, x: 0, ease: 'power3.out', delay: 1 });
+			let dist = (window.innerWidth <= 1440) ? -170 : -300;
+			window.addEventListener('resize', ()=> {
+				dist = (window.innerWidth <= 1440) ? -170 : -300;
+			});
+			gsap.fromTo(rateRef.current, { x: dist }, { duration: 1, x: 0, ease: 'power3.out', delay: 1 });
 		}
 	}, []);
 

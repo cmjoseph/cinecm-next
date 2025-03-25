@@ -94,14 +94,27 @@
         }
     }
     .grid_item_reviews {
-        width: calc(20% - 4em);
+        width: calc(20% - 4rem);
+        @media (max-width: 1440px) {
+            width: calc(25% - 4rem);
+        }
+        @media (max-width: 1024px) {
+            width: calc(33.33% - 4rem);
+        }
+        @media (max-width: 768px) {
+            width: calc(25% - 3rem);
+        }
+        @media (max-width: 540px) {
+            width: calc(50% - 3rem);
+        }
         .poster {
             .overlay {
                 font-size: 24px;
                 padding: 0 1em;
             }
             img {
-                height: 400px;
+                height: auto;
+                aspect-ratio: 170/250;
             }
         }
     }
@@ -116,5 +129,12 @@
         text-transform: uppercase;
         text-align: center;
         font-size: 52px;
+        padding: 2rem;
+        @media (max-width: 1024px) {
+            font-size: 32px;  
+        }
+        @media (max-width: 768px) {
+            font-size: 24px;  
+        }
     }
 }
