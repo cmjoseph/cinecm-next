@@ -1,0 +1,7 @@
+$primary-color: #64ff00;
+$time: 0.35s;
+ 
+:export {
+  primaryColor: $primary-color;
+  timeEase: $time;
+}

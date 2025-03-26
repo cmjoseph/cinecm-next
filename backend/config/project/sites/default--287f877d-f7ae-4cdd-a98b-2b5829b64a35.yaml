@@ -1,0 +1,9 @@
+baseUrl: 'http://cinecm.com/'
+enabled: true
+handle: default
+hasUrls: true
+language: en-US
+name: CineCM
+primary: true
+siteGroup: d1f29349-ea43-4937-8215-71b58607e38e # CineCM
+sortOrder: 1
