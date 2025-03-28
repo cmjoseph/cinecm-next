@@ -1,13 +1,33 @@
-dateModified: 1742964729
+dateModified: 1743135900
 email:
   fromEmail: cmarcjoseph@gmail.com
   fromName: CineCM
   transportType: craft\mail\transportadapters\Sendmail
+fs:
+  images:
+    hasUrls: false
+    name: Images
+    settings:
+      path: /images
+    type: craft\fs\Local
+    url: null
 meta:
   __names__:
+    3e1e7267-3a8d-4fb5-839b-f1ba5bc57b5d: Default # Default
+    53cfe181-4548-45f6-844d-7d5844e09978: Homepage # Homepage
+    90eac737-1f9a-45e0-a065-8d2bbd548b42: Reviews # Reviews
     287f877d-f7ae-4cdd-a98b-2b5829b64a35: CineCM # CineCM
+    453b17d3-4b6e-48d2-bbe5-a3824c21a57d: Movie # Movie
+    5912578d-29d0-4e8c-9933-dcdd2a7b3ad3: Backgrounds # Backgrounds
     d1f29349-ea43-4937-8215-71b58607e38e: CineCM # CineCM
     d9035bc0-f8cd-4575-b9e9-7459901be077: 'Public Schema' # Public Schema
+    e9fff74e-f353-4545-8bc0-d68640ccf378: Background # Background
+    e1496176-2d49-4fad-ba8e-da5388f20289: Description # Description
+plugins:
+  abm-tinymce:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
 system:
   edition: solo
   live: true

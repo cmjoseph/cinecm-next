@@ -1,0 +1,90 @@
+color: null
+fieldLayouts:
+  09a96702-c9ab-4de3-a839-3414ca6e81fe:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-03-28T03:27:05+00:00'
+            elementCondition: null
+            heading: 'Test Heading'
+            type: craft\fieldlayoutelements\Heading
+            uid: 9f3bee0f-d1ec-42a5-9a49-852a0f70ab20
+            userCondition: null
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-03-28T03:23:17+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: c38a38e6-d50c-4b06-b1ce-46aa4de29800
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-03-28T03:27:05+00:00'
+            elementCondition: null
+            fieldUid: e9fff74e-f353-4545-8bc0-d68640ccf378 # Background
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 24d126e6-d8ad-4a9a-9e87-27d4a72aa76e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-03-28T03:27:05+00:00'
+            elementCondition: null
+            fieldUid: e1496176-2d49-4fad-ba8e-da5388f20289 # Description
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8a8ce29c-ea8e-49ac-aa28-7acf35e19750
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: b864d3fe-4c9d-430c-a535-ee30f6b262a7
+        userCondition: null
+handle: movie
+hasTitleField: true
+icon: null
+name: Movie
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

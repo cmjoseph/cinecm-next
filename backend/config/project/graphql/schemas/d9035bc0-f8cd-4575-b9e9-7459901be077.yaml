@@ -1,2 +1,4 @@
 isPublic: true
 name: 'Public Schema'
+scope:
+  - 'sites.287f877d-f7ae-4cdd-a98b-2b5829b64a35:read' # CineCM
