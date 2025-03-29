@@ -1,0 +1,20 @@
+columnSuffix: null
+handle: theGood
+instructions: null
+name: 'The Good'
+searchable: false
+settings:
+  availableTransforms: ''
+  availableVolumes: ''
+  purifierConfig: Default.json
+  purifyHtml: true
+  removeEmptyTags: false
+  removeInlineStyles: false
+  removeNbsp: false
+  showHtmlButtonForNonAdmins: false
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  tinymceConfig: Default.json
+translationKeyFormat: null
+translationMethod: none
+type: abmat\tinymce\Field

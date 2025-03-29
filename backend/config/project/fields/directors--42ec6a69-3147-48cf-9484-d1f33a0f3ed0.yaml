@@ -1,0 +1,21 @@
+columnSuffix: null
+handle: directors
+instructions: null
+name: Directors
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: 'Add a director'
+  showCardsInGrid: false
+  showSiteMenu: true
+  source: 'group:df7c0bdf-f14c-47d5-9b3f-ddea1879bfdc' # Directors
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Categories

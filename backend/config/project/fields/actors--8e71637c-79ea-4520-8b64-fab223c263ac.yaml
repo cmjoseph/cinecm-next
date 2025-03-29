@@ -1,0 +1,21 @@
+columnSuffix: null
+handle: actors
+instructions: null
+name: Actors
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: 'Add an actor'
+  showCardsInGrid: false
+  showSiteMenu: true
+  source: 'group:adbe5518-2626-413c-b7d6-f9b361e9da2e' # Actors
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Categories

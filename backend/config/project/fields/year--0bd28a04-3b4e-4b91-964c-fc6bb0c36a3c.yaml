@@ -1,0 +1,55 @@
+columnSuffix: null
+handle: year
+instructions: null
+name: Year
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - '2025'
+        -
+          - value
+          - '2025'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - '2024'
+        -
+          - value
+          - '2024'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - '1999'
+        -
+          - value
+          - '1999'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - '1991'
+        -
+          - value
+          - '1991'
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\RadioButtons

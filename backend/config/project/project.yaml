@@ -1,28 +1,56 @@
-dateModified: 1743135900
+dateModified: 1743226879
 email:
   fromEmail: cmarcjoseph@gmail.com
   fromName: CineCM
   transportType: craft\mail\transportadapters\Sendmail
 fs:
-  images:
+  backgrounds:
     hasUrls: false
-    name: Images
+    name: Backgrounds
     settings:
-      path: /images
+      path: /images/backgrounds
+    type: craft\fs\Local
+    url: null
+  posters:
+    hasUrls: false
+    name: Posters
+    settings:
+      path: /images/posters
     type: craft\fs\Local
     url: null
 meta:
   __names__:
+    0bd28a04-3b4e-4b91-964c-fc6bb0c36a3c: Year # Year
+    1c0f7352-6bcf-4140-9603-f6751206bd31: Data # Data
+    01cb3fcd-8866-4e87-b0a9-e6cb05c34921: Runtime # Runtime
+    2b378e5e-3f9a-4188-ac43-277da8af5a7c: Rating # Rating
+    2c77b89d-dbe8-4424-a356-5ac3815c6e38: Poster # Poster
     3e1e7267-3a8d-4fb5-839b-f1ba5bc57b5d: Default # Default
+    4e2f4475-7e26-4cd1-8ae0-f1a445cc4275: Date # Date
+    7fd2fcdf-5bc9-45ac-a95d-b3a33a347ffb: 'The Good' # The Good
+    8a814100-8e79-4c71-b0ec-45a52497a780: 'Review in French' # Review in French
+    8e9ec968-3420-4bc2-87d8-f3271360061b: 'The Bad' # The Bad
+    8e71637c-79ea-4520-8b64-fab223c263ac: Actors # Actors
+    9a6b1290-71d6-4895-86a1-9d3af92225be: Upcoming # Upcoming
+    9e1d268a-abf4-4d48-a050-75b92d04c81a: Posters # Posters
+    33cd73e7-9958-438b-8169-3896f099fea6: Type # Type
+    42ec6a69-3147-48cf-9484-d1f33a0f3ed0: Directors # Directors
     53cfe181-4548-45f6-844d-7d5844e09978: Homepage # Homepage
+    87babef8-8601-4878-9e69-a585e0c594b3: Genres # Genres
     90eac737-1f9a-45e0-a065-8d2bbd548b42: Reviews # Reviews
+    266f0403-3171-4609-acb3-5f366116df07: Distributors # Distributors
     287f877d-f7ae-4cdd-a98b-2b5829b64a35: CineCM # CineCM
     453b17d3-4b6e-48d2-bbe5-a3824c21a57d: Movie # Movie
     5912578d-29d0-4e8c-9933-dcdd2a7b3ad3: Backgrounds # Backgrounds
+    adbe9d70-944b-4b1f-90e2-860e9ec1d5ab: Trailer # Trailer
+    adbe5518-2626-413c-b7d6-f9b361e9da2e: Actors # Actors
+    c998e61b-5a46-4362-bb42-40925dd35e56: Genres # Genres
     d1f29349-ea43-4937-8215-71b58607e38e: CineCM # CineCM
     d9035bc0-f8cd-4575-b9e9-7459901be077: 'Public Schema' # Public Schema
+    df7c0bdf-f14c-47d5-9b3f-ddea1879bfdc: Directors # Directors
     e9fff74e-f353-4545-8bc0-d68640ccf378: Background # Background
     e1496176-2d49-4fad-ba8e-da5388f20289: Description # Description
+    f292c451-c865-4a2a-8a1a-e2e655209334: Distributors # Distributors
 plugins:
   abm-tinymce:
     edition: standard

@@ -1,4 +1,4 @@
-baseUrl: 'http://cinecm.com/'
+baseUrl: 'http://localhost:3000/'
 enabled: true
 handle: default
 hasUrls: true

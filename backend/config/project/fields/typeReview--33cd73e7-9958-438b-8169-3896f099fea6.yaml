@@ -1,0 +1,33 @@
+columnSuffix: null
+handle: typeReview
+instructions: null
+name: Type
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Movie
+        -
+          - value
+          - movie
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - TV
+        -
+          - value
+          - tv
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\RadioButtons

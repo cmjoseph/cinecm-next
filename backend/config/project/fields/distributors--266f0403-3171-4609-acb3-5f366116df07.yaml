@@ -1,0 +1,21 @@
+columnSuffix: null
+handle: distributors
+instructions: null
+name: Distributors
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: 'Add a distributor'
+  showCardsInGrid: false
+  showSiteMenu: false
+  source: 'group:f292c451-c865-4a2a-8a1a-e2e655209334' # Distributors
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Categories

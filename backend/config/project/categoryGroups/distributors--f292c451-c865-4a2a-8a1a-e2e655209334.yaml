@@ -1,7 +1,6 @@
-altTranslationKeyFormat: null
-altTranslationMethod: none
+defaultPlacement: end
 fieldLayouts:
-  d8022036-c453-442f-a519-7eeedd6729c6:
+  32ec3f8a-ba9b-4754-af7b-c174862d1034:
     tabs:
       -
         elementCondition: null
@@ -11,7 +10,7 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
-            dateAdded: '2025-03-28T03:30:42+00:00'
+            dateAdded: '2025-03-29T03:10:49+00:00'
             disabled: false
             elementCondition: null
             id: null
@@ -31,20 +30,21 @@ fieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\fieldlayoutelements\assets\AssetTitleField
-            uid: 985c97fc-3da6-4b7e-968c-5127b8ea3ee7
+            type: craft\fieldlayoutelements\TitleField
+            uid: 6a078e6d-8168-445c-8b31-991ba40efafa
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: 67b53132-a54f-48a8-baa5-2e66254dd456
+        uid: 2685541c-dc13-449c-8c7f-54c0881e636d
         userCondition: null
-fs: backgrounds
-handle: backgrounds
-name: Backgrounds
-sortOrder: 1
-subpath: ''
-titleTranslationKeyFormat: null
-titleTranslationMethod: site
-transformFs: ''
-transformSubpath: ''
+handle: distributors
+name: Distributors
+siteSettings:
+  287f877d-f7ae-4cdd-a98b-2b5829b64a35: # CineCM
+    hasUrls: true
+    template: distributors/_category.twig
+    uriFormat: 'distributors/{slug}'
+structure:
+  maxLevels: null
+  uid: 2de661f0-863b-46d6-8cd3-61c5c6205086

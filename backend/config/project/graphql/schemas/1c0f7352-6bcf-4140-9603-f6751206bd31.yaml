@@ -1,0 +1,12 @@
+isPublic: false
+name: Data
+scope:
+  - 'sites.287f877d-f7ae-4cdd-a98b-2b5829b64a35:read' # CineCM
+  - 'sections.53cfe181-4548-45f6-844d-7d5844e09978:read' # Homepage
+  - 'sections.90eac737-1f9a-45e0-a065-8d2bbd548b42:read' # Reviews
+  - 'volumes.5912578d-29d0-4e8c-9933-dcdd2a7b3ad3:read' # Backgrounds
+  - 'volumes.9e1d268a-abf4-4d48-a050-75b92d04c81a:read' # Posters
+  - 'categorygroups.adbe5518-2626-413c-b7d6-f9b361e9da2e:read' # Actors
+  - 'categorygroups.df7c0bdf-f14c-47d5-9b3f-ddea1879bfdc:read' # Directors
+  - 'categorygroups.f292c451-c865-4a2a-8a1a-e2e655209334:read' # Distributors
+  - 'categorygroups.87babef8-8601-4878-9e69-a585e0c594b3:read' # Genres

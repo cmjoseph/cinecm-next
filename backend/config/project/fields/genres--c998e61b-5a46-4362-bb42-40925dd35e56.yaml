@@ -1,0 +1,21 @@
+columnSuffix: null
+handle: genres
+instructions: null
+name: Genres
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: 'Add a genre'
+  showCardsInGrid: false
+  showSiteMenu: true
+  source: 'group:87babef8-8601-4878-9e69-a585e0c594b3' # Genres
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Categories
