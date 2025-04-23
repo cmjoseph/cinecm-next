@@ -1,15 +1,15 @@
 columnSuffix: null
-handle: year
+handle: label
 instructions: null
-name: Year
+name: Label
 searchable: false
 settings:
   byteLimit: null
-  charLimit: 4
+  charLimit: null
   code: false
   initialRows: 4
   multiline: false
-  placeholder: Year
+  placeholder: null
   uiMode: normal
 translationKeyFormat: null
 translationMethod: none

@@ -2,10 +2,10 @@ defaultPlacement: end
 enableVersioning: true
 entryTypes:
   -
-    uid: 3e1e7267-3a8d-4fb5-839b-f1ba5bc57b5d # Default
-handle: homepage
+    uid: 453b17d3-4b6e-48d2-bbe5-a3824c21a57d # movie
+handle: movies
 maxAuthors: 1
-name: Homepage
+name: Movies
 previewTargets:
   -
     __assoc__:
@@ -23,6 +23,6 @@ siteSettings:
   287f877d-f7ae-4cdd-a98b-2b5829b64a35: # CineCM
     enabledByDefault: true
     hasUrls: true
-    template: index.twig
-    uriFormat: __home__
-type: single
+    template: reviews/_entry.twig
+    uriFormat: 'reviews/{slug}'
+type: channel

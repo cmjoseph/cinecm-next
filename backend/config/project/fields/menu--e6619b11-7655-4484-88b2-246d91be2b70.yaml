@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: menu
+instructions: null
+name: Menu
+searchable: false
+settings:
+  contentTable: ''
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 4755571e-cb4e-4c12-aa47-de35e819e5c9 # menu item
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

@@ -7,13 +7,15 @@ export const toSlug = (str: string) => {
       .replace(/[^\w-]+/g, "");
 };
 
-export const getAllActors = (array: any) => {
-    const data = Array();
-    const uniqueNames = Array();
-    array.map((item: any, index: number) => data.push(item.actors));
-    const merge = data.flat(1);
-    let sortedArray = merge.sort();
-    let cleanDup = new Set(sortedArray);
-    let items = [...cleanDup];
-    return items;
-};
+export const removePTags = (str: string) => {
+    return str.replace(/<\/?p>/g, '');
+}
+
+export const youTubeGetID = (url: string) => {
+    const [a, , b] = url.replace(/(>|<)/gi, '').split(/^.*(?:(?:youtu\.?be(\.com)?\/|v\/|vi\/|u\/\w\/|embed\/|shorts\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/)
+    if (b !== undefined) {
+        return b.split(/[^0-9a-z_-]/i)[0]
+    } else {
+        return a
+    }
+}

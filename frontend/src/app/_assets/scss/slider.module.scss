@@ -262,16 +262,3 @@
         transform: scale(1.2) translate(-5%, -5%);
     }
 }
-
-.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
-    padding-bottom: 2em;
-    .swiper-pagination-bullet {
-        background-color: white;
-        width: 60px;
-        border-radius: 0;
-        height: 3px;
-        @media (max-width: 768px) {
-            width: 30px;
-        }
-    }
-}

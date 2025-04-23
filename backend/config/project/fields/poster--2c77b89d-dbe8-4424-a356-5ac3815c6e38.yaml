@@ -9,7 +9,7 @@ settings:
   allowUploads: true
   allowedKinds: null
   branchLimit: null
-  defaultUploadLocationSource: null
+  defaultUploadLocationSource: 'volume:9e1d268a-abf4-4d48-a050-75b92d04c81a' # Posters
   defaultUploadLocationSubpath: null
   maintainHierarchy: false
   maxRelations: null
@@ -20,9 +20,9 @@ settings:
   restrictedDefaultUploadSubpath: null
   restrictedLocationSource: 'volume:5912578d-29d0-4e8c-9933-dcdd2a7b3ad3' # Backgrounds
   restrictedLocationSubpath: null
-  selectionLabel: null
+  selectionLabel: 'Add a poster'
   showCardsInGrid: false
-  showSiteMenu: false
+  showSiteMenu: true
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
   sources: '*'

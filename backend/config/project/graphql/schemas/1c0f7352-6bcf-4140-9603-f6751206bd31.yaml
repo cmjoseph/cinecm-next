@@ -2,8 +2,9 @@ isPublic: false
 name: Data
 scope:
   - 'sites.287f877d-f7ae-4cdd-a98b-2b5829b64a35:read' # CineCM
-  - 'sections.53cfe181-4548-45f6-844d-7d5844e09978:read' # Homepage
-  - 'sections.90eac737-1f9a-45e0-a065-8d2bbd548b42:read' # Reviews
+  - 'sections.b6669d36-75cf-4803-ab5a-4d50dcf831b2:read' # Menu
+  - 'sections.90eac737-1f9a-45e0-a065-8d2bbd548b42:read' # Movies
+  - 'sections.a6f5b78a-4505-40e2-9103-63bdd9cf0aae:read' # Page
   - 'volumes.5912578d-29d0-4e8c-9933-dcdd2a7b3ad3:read' # Backgrounds
   - 'volumes.9e1d268a-abf4-4d48-a050-75b92d04c81a:read' # Posters
   - 'categorygroups.adbe5518-2626-413c-b7d6-f9b361e9da2e:read' # Actors

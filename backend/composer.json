@@ -22,7 +22,8 @@
   "prefer-stable": true,
   "require": {
     "abmat/craft-tinymce": "2.0.6",
-    "craftcms/cms": "^5.0.0",
+    "craftcms/cms": "5.6.17",
+    "verbb/super-table": "4.0.4",
     "vlucas/phpdotenv": "^5.4.0"
   },
   "require-dev": {

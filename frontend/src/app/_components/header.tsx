@@ -3,7 +3,7 @@ import styles from "../_assets/scss/header.module.scss";
 import variables from '../_assets/scss/_variables.module.scss';
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname  } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { GrInstagram } from "react-icons/gr";
@@ -13,10 +13,11 @@ import { GrClose } from "react-icons/gr";
 import { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 
-export default function Header() {
+export default function Header({items}: any) {
     const pathname                  = usePathname();
     const [menuOpen, setMenuOpen]   = useState(false);
     const menuItemsRef              = useRef<HTMLDivElement[]>([]);
+    console.log(items, pathname);
 
     const toggleClass = (e: any) => {
         if (menuOpen === false) {
@@ -55,10 +56,11 @@ export default function Header() {
                     </Link>
                 </div>
                 <div className={styles.nav__menu}>
-                    <Link ref={(el: any) => { if (menuItemsRef.current) {(menuItemsRef.current[0] = el)} }} className={pathname == "/reviews" ? styles.active : ""} href="/reviews">Reviews</Link>
-                    <Link ref={(el: any) => { if (menuItemsRef.current) {(menuItemsRef.current[1] = el)} }} className={pathname == "/news" ? styles.active : ""} href="/news">News</Link>
-                    <Link ref={(el: any) => { if (menuItemsRef.current) {(menuItemsRef.current[2] = el)} }} className={pathname == "/about" ? styles.active : ""} href="/about">About</Link>
-                    <Link ref={(el: any) => { if (menuItemsRef.current) {(menuItemsRef.current[3] = el)} }} className={pathname == "/contact" ? styles.active : ""} href="/contact">Contact</Link>
+                    {items.map((item: any, index: number) => (
+                        <Link ref={(el: any) => { if (menuItemsRef.current) {(menuItemsRef.current[0] = el)} }} className={pathname == `/${item.slug}` ? styles.active : ""} key={index} href={item.slug}>
+                            {item.title}
+                        </Link>
+                    ))}
                 </div>
                 <div className={styles.nav__socials} ref={(el: any) => { if (menuItemsRef.current) {(menuItemsRef.current[4] = el)} }}>
                     <Link href="http://www.facebook.com" target="_blank"><FaFacebookSquare /></Link>

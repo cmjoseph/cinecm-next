@@ -1,4 +1,4 @@
-dateModified: 1743226879
+dateModified: 1745385026
 email:
   fromEmail: cmarcjoseph@gmail.com
   fromName: CineCM
@@ -23,9 +23,10 @@ meta:
     0bd28a04-3b4e-4b91-964c-fc6bb0c36a3c: Year # Year
     1c0f7352-6bcf-4140-9603-f6751206bd31: Data # Data
     01cb3fcd-8866-4e87-b0a9-e6cb05c34921: Runtime # Runtime
+    1d5f255b-2184-489d-92bc-1efcf3e73eac: Url # Url
+    1d6146b1-9013-4a36-8e18-220b4240560d: Page # Page
     2b378e5e-3f9a-4188-ac43-277da8af5a7c: Rating # Rating
     2c77b89d-dbe8-4424-a356-5ac3815c6e38: Poster # Poster
-    3e1e7267-3a8d-4fb5-839b-f1ba5bc57b5d: Default # Default
     4e2f4475-7e26-4cd1-8ae0-f1a445cc4275: Date # Date
     7fd2fcdf-5bc9-45ac-a95d-b3a33a347ffb: 'The Good' # The Good
     8a814100-8e79-4c71-b0ec-45a52497a780: 'Review in French' # Review in French
@@ -35,20 +36,25 @@ meta:
     9e1d268a-abf4-4d48-a050-75b92d04c81a: Posters # Posters
     33cd73e7-9958-438b-8169-3896f099fea6: Type # Type
     42ec6a69-3147-48cf-9484-d1f33a0f3ed0: Directors # Directors
-    53cfe181-4548-45f6-844d-7d5844e09978: Homepage # Homepage
     87babef8-8601-4878-9e69-a585e0c594b3: Genres # Genres
-    90eac737-1f9a-45e0-a065-8d2bbd548b42: Reviews # Reviews
+    90eac737-1f9a-45e0-a065-8d2bbd548b42: Movies # Movies
     266f0403-3171-4609-acb3-5f366116df07: Distributors # Distributors
     287f877d-f7ae-4cdd-a98b-2b5829b64a35: CineCM # CineCM
-    453b17d3-4b6e-48d2-bbe5-a3824c21a57d: Movie # Movie
+    453b17d3-4b6e-48d2-bbe5-a3824c21a57d: movie # movie
+    4755571e-cb4e-4c12-aa47-de35e819e5c9: 'menu item' # menu item
     5912578d-29d0-4e8c-9933-dcdd2a7b3ad3: Backgrounds # Backgrounds
+    a6f5b78a-4505-40e2-9103-63bdd9cf0aae: Page # Page
+    a7f5853c-d8ed-42f1-a20a-729c73ff0628: 'Main Nav' # Main Nav
     adbe9d70-944b-4b1f-90e2-860e9ec1d5ab: Trailer # Trailer
     adbe5518-2626-413c-b7d6-f9b361e9da2e: Actors # Actors
+    b6669d36-75cf-4803-ab5a-4d50dcf831b2: Menu # Menu
     c998e61b-5a46-4362-bb42-40925dd35e56: Genres # Genres
     d1f29349-ea43-4937-8215-71b58607e38e: CineCM # CineCM
+    d11a4b91-f5df-426e-ae1d-f3d135f1e299: Label # Label
     d9035bc0-f8cd-4575-b9e9-7459901be077: 'Public Schema' # Public Schema
     df7c0bdf-f14c-47d5-9b3f-ddea1879bfdc: Directors # Directors
     e9fff74e-f353-4545-8bc0-d68640ccf378: Background # Background
+    e6619b11-7655-4484-88b2-246d91be2b70: Menu # Menu
     e1496176-2d49-4fad-ba8e-da5388f20289: Description # Description
     f292c451-c865-4a2a-8a1a-e2e655209334: Distributors # Distributors
 plugins:
@@ -56,6 +62,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  super-table:
+    edition: standard
+    enabled: true
+    schemaVersion: 4.0.0
 system:
   edition: solo
   live: true

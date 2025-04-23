@@ -1,0 +1,16 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 4755571e-cb4e-4c12-aa47-de35e819e5c9 # menu item
+handle: menu
+maxAuthors: 1
+name: Menu
+propagationMethod: all
+siteSettings:
+  287f877d-f7ae-4cdd-a98b-2b5829b64a35: # CineCM
+    enabledByDefault: true
+    hasUrls: true
+    template: menu/_entry.twig
+    uriFormat: 'menu/{slug}'
+type: channel

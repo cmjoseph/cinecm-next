@@ -15,10 +15,16 @@ export const metadata: Metadata = {
 async function getContent() {
     const data = await fetchApi(`
         query {
-            reviewsEntries {
-				... on movie_Entry {
+            menuEntries {
+				... on menuItem_Entry {
 					id
+					slug
 					title
+					item_url {
+						target
+						label
+						link
+					}
 				}
 			}
         }
@@ -28,11 +34,11 @@ async function getContent() {
 
 export default async function RootLayout({children}: { children: React.ReactNode }) {
 	const content = await getContent();
-	console.log(content);
+	console.log(content.data.menuEntries);
   	return (
 		<html lang="en">
 			<body className={`${joreg.className}`}>
-				<Header />
+				<Header items={content.data.menuEntries}/>
 				<main>
 					<ReactLenis root options={{ lerp: 0.1, duration: 1.5, smoothWheel: true }}>
 						{children}

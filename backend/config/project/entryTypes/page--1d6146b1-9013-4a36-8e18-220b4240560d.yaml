@@ -1,6 +1,6 @@
-color: null
+color: amber
 fieldLayouts:
-  c73323d6-513c-42e0-b0bd-8e6df81611cf:
+  f4a8d0e3-9249-4845-871a-cfe024ce04f1:
     tabs:
       -
         elementCondition: null
@@ -10,7 +10,7 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
-            dateAdded: '2025-03-28T02:59:52+00:00'
+            dateAdded: '2025-04-08T23:48:55+00:00'
             disabled: false
             elementCondition: null
             id: null
@@ -31,17 +31,17 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: 375c362a-234c-44df-a7a8-adae884f7f9f
+            uid: 906623d2-ea9c-48fc-a7a9-c82315d7bab2
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: 410288ed-4996-4ab6-bf85-8259897c64c1
+        uid: 2cf4c83a-197c-4416-bc33-46a63a37a5e6
         userCondition: null
-handle: default
+handle: page
 hasTitleField: true
-icon: null
-name: Default
+icon: file
+name: Page
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null

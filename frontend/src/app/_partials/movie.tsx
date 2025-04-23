@@ -36,13 +36,13 @@ export default function Movie({movies}: any) {
     return (
         <div className={styles.grid} ref={container}>
             {movies.slice(0, 8).map((movie: any, index: any) => (
-                <Link key={index} href={`/reviews/${toSlug(movie.title)}`} className={styles.grid_item} ref={(el: any) => { if (reviews.current) {(reviews.current[index] = el)} }}>
+                <Link key={index} href={`/reviews/${toSlug(movie.slug)}`} className={styles.grid_item} ref={(el: any) => { if (reviews.current) {(reviews.current[index] = el)} }}>
                     <div className={styles.poster}>
                         <div className={styles.overlay}>
                             <h3>{movie.title}</h3>
                         </div>
-                        <img src={movie.poster} alt={movie.title} />
-                        <div className={styles.rate}>{movie.rate}</div>
+                        <img src={`/images/movies/${movie.poster[0].filename}`} alt={movie.title} />
+                        <div className={styles.rate}>{movie.rating}</div>
                     </div>
                     <h4>{movie.title}</h4>
                 </Link>
