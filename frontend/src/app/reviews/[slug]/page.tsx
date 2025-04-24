@@ -7,7 +7,7 @@ import YouTubePlayer from '../../_components/youtube';
 import Rating from '../../_components/rating';
 import Verdict from '../../_components/verdict';
 import ModalTrailer from '../../_partials/trailer';
-import { removePTags, youTubeGetID } from "../../_hooks/slug";
+import { removePTags, youTubeGetID, limitWords } from "../../_hooks/slug";
 
 export async function generateMetadata() {
     return {
@@ -35,6 +35,19 @@ async function getContent(movie: string) {
                     description
                     date
                     status
+                    year
+                    directors {
+                        title
+                    }
+                    actors {
+                        title
+                    }
+                    distributors {
+                        title
+                    }
+                    genres {
+                        title
+                    }
                     background {
                         id
                         filename
@@ -56,7 +69,6 @@ export default async function Page({params}: {params: Promise<{ slug: string, ra
     const {slug} = (await params);
     const content = await getContent(slug);
     const data = content.data.moviesEntries[0];
-    console.log(data);
     return (
         <div className={`${styles.single} ${global.page}`}>
             <div className={styles.hero}>
@@ -87,28 +99,52 @@ export default async function Page({params}: {params: Promise<{ slug: string, ra
                         </div>
                         <div className={styles.hero_content_right}>
                             <h1>{data.title}</h1>
-                            <div className={styles.hero_rate}>
-                                <Rating rate={`${data.rating}%`} />
+                            <div className={`${styles.hero_rate}`}>
+                                <Rating rate={data.rating} />
                             </div>
                             <p className={styles.description}>
-                                ${removePTags(data.description)}
+                                ${limitWords(removePTags(data.description), 80)}
                             </p>
                             <div className={styles.informations}>
                                 <div className={styles.directors}>
                                     <span className={styles.prefix}>Director</span>
-                                    <span className={styles.data}>James Cameron</span>
+                                    <div className={styles.data}>
+                                        {data.directors.length > 0 ? (
+                                            data.directors.map((director: any, index: number) => (
+                                                <span key={index}>{director.title}</span>
+                                            ))
+                                        ) : (
+                                            <span>N/A</span>
+                                        )}
+                                    </div>
                                 </div>
                                 <div className={styles.cast}>
                                     <span className={styles.prefix}>Cast</span>
-                                    <span className={styles.data}>Arnorld Schwarzenegger, Linda Hamilton, Edward Furlong, Robert Patrick</span> 
+                                    <div className={styles.data}>
+                                        {data.actors.length > 0 ? (
+                                            data.actors.map((actor: any, index: number) => ( 
+                                                <span key={index}>{actor.title}</span>
+                                            ))
+                                        ) : (
+                                            <span>N/A</span>
+                                        )}
+                                    </div> 
                                 </div>
                                 <div className={styles.genres}>
                                     <span className={styles.prefix}>Genres</span>
-                                    <span className={styles.data}>Action, Science-fiction</span>
+                                    <div className={styles.data}>
+                                        {data.actors.length > 0 ? (
+                                            data.genres.map((genre: any, index: number) => ( 
+                                                <span key={index}>{genre.title}</span>
+                                            ))
+                                        ) : (
+                                            <span>N/A</span>
+                                        )}
+                                    </div>
                                 </div>
                                 <div className={styles.year}>
                                     <span className={styles.prefix}>Year</span>
-                                    <span className={styles.data}>1991</span>
+                                    <div className={styles.data}>{data.year}</div>
                                 </div>
                             </div>
                         </div>

@@ -5,6 +5,19 @@ import { gsap } from "gsap";
 
 export default function Rating({rate}: any) {
   	const rateRef = useRef<HTMLDivElement>(null);
+	let rate_color = null;
+	
+	if (rate >= 95) {
+        rate_color = styles.spectacular;
+    } else if (rate <= 94 && rate >= 80 ) {
+        rate_color = styles.great;
+    } else if (rate <= 79 && rate >= 65 ) {
+        rate_color = styles.average;
+    } else if (rate <= 64 && rate >= 50 ) {
+        rate_color = styles.horrible;
+    } else {
+        rate_color = styles.mediocre;
+    }
 	  
 	useEffect(() => {
 		if (rateRef.current) {
@@ -17,6 +30,6 @@ export default function Rating({rate}: any) {
 	}, []);
 
 	return (
-		<div ref={rateRef} className={`${styles.ratebox} ${styles.mediocre}`}><span className={styles.rate}>{rate}</span></div>
+		<div ref={rateRef} className={`${styles.ratebox} ${rate_color}`}><span className={styles.rate}>{rate}%</span></div>
 	);
 }

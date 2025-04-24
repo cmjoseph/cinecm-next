@@ -42,7 +42,7 @@ export default function Movie({movies}: any) {
                             <h3>{movie.title}</h3>
                         </div>
                         <img src={`/images/movies/${movie.poster[0].filename}`} alt={movie.title} />
-                        <div className={styles.rate}>{movie.rating}</div>
+                        <div className={styles.rate}>{movie.rating}%</div>
                     </div>
                     <h4>{movie.title}</h4>
                 </Link>

@@ -170,6 +170,8 @@
                     }
                     .informations {
                         display: table;
+                        min-width: 40vw;
+                        width: 100%;
                         border: 1px solid grey;
                         border-bottom: none;
                         .directors, .cast, .genres, .year {
@@ -212,7 +214,7 @@
                                     padding: 10px;
                                 }
                             }
-                            span.data {
+                            div.data {
                                 display: table-cell;
                                 padding: 10px 15px;
                                 line-height: 1.4;
@@ -223,6 +225,11 @@
                                 @media (max-width: 768px) {
                                     text-align: center;
                                     width: 100%;
+                                }
+                                span + span {
+                                    &:before {
+                                        content: ', ';
+                                    }
                                 }
                             }
                         }
